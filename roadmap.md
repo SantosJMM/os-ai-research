@@ -11,10 +11,15 @@ Objetivo: construir conocimiento técnico verificable mediante teoría, lectura 
 
 **Definición de terminado:** no basta con una explicación conceptual. Cada unidad debe entregar evidencia del laboratorio, instrucciones de reproducción y una conclusión que separe hechos de hipótesis.
 
+## Enfoque de lenguajes
+
+OS Research emplea **C, Rust y Assembly** según lo que facilite la comprensión. Thanos OS mantiene Rust como lenguaje principal; no es necesario portar cada laboratorio a Rust.
+
 ## Unidades e Issues
 
 | Unidad | Área | Seguimiento |
 | --- | --- | --- |
+| 00 | **Arquitectura de computadores: ISA, ABI, registros, privilegios y MMU** — x86-64 primero; RISC-V y ARM64 después | [#10](https://github.com/SantosJMM/os-research/issues/10) |
 | 01 | CPU, privilegios, interrupciones y syscalls | [#1](https://github.com/SantosJMM/os-research/issues/1) |
 | 02 | Procesos, hilos, planificación y sincronización | [#2](https://github.com/SantosJMM/os-research/issues/2) |
 | 03 | IPC: sockets, pipes, memoria compartida y Schemes | [#3](https://github.com/SantosJMM/os-research/issues/3) |
@@ -27,7 +32,7 @@ Objetivo: construir conocimiento técnico verificable mediante teoría, lectura 
 
 ## Orden de trabajo sugerido
 
-**Ruta principal:** 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09.
+**Ruta principal:** 00 → 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09.
 
 **Laboratorio transversal:** los temas 03 y 09 pueden explorarse en paralelo con Thanos OS, sin introducir cambios en su repositorio hasta completar pruebas y revisar decisiones.
 
@@ -48,7 +53,7 @@ No hay plazos arbitrarios ni obligación de seguir una cadencia fija: el progres
 
 ## Primera práctica
 
-Estudiar el recorrido de una syscall en Linux (Issue #1) y, como segundo proyecto, comparar un servidor petición-respuesta mediante socket Unix con un proveedor Scheme de Redox (Issue #3). La comparación debe considerar semántica, seguridad, reproducibilidad y mediciones, sin declarar un ganador de antemano.
+Comenzar por arquitectura de computadores: compilar C, inspeccionar Assembly y registros ([Issue #10](https://github.com/SantosJMM/os-research/issues/10)); después estudiar el recorrido de una syscall en Linux (Issue #1) y, como segundo proyecto, comparar un servidor petición-respuesta mediante socket Unix con un proveedor Scheme de Redox (Issue #3). La comparación debe considerar semántica, seguridad, reproducibilidad y mediciones, sin declarar un ganador de antemano.
 
 ## Regla de separación
 
