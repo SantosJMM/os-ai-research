@@ -1,0 +1,109 @@
+{
+  "sasp_version": "draft-01",
+  "provider": {
+    "id": "org.example.backup",
+    "name": "Example Backup Service",
+    "kind": "daemon",
+    "version": "0.1.0"
+  },
+  "capabilities": {
+    "state": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "idle",
+              "running",
+              "degraded"
+            ]
+          },
+          "last_result": {
+            "type": "string",
+            "enum": [
+              "completed",
+              "failed",
+              "none"
+            ]
+          }
+        },
+        "required": [
+          "status",
+          "last_result"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "methods": [
+      {
+        "name": "backup.verify",
+        "description": "Verify the integrity of an existing backup",
+        "effect": "act",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "backup_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "backup_id"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "verified"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": "backup.completed",
+        "description": "Backup completed",
+        "dataSchema": {
+          "type": "object",
+          "properties": {
+            "backup_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "backup_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "backup.failed",
+        "description": "Backup failed",
+        "dataSchema": {
+          "type": "object",
+          "properties": {
+            "backup_id": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "backup_id",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ]
+  }
+}
