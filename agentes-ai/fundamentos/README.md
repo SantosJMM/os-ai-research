@@ -1,6 +1,6 @@
 # Unidad 10 — Fundamentos de agentes de IA
 
-[Issue #11](https://github.com/SantosJMM/os-research/issues/11)
+[Issue #11](https://github.com/SantosJMM/os-ai-research/issues/11)
 
 ## Preguntas
 - ¿Qué distingue un modelo de un agente y de un runtime?
