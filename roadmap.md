@@ -31,7 +31,7 @@ OS Research emplea **C, Rust y Assembly** según lo que facilite la comprensión
 | 09 | IA como participante de primera clase (Thanos OS) | [#9](https://github.com/SantosJMM/os-research/issues/9) |
 | 10 | **Fundamentos de agentes de IA: modelos, herramientas y runtime** | [#11](https://github.com/SantosJMM/os-research/issues/11) |
 | 11 | **Agentes y sistemas operativos: autoridad, aislamiento y eventos** | [#12](https://github.com/SantosJMM/os-research/issues/12) |
-| 12 | **TUP Protocol: contrato entre aplicaciones, humanos y agentes de IA** | [#13](https://github.com/SantosJMM/os-research/issues/13) |
+| 12 | **Thanos UI Protocol (TUP): estado, métodos, eventos y contexto de interfaz para la IA** | [#13](https://github.com/SantosJMM/os-research/issues/13) |
 
 ## Orden de trabajo sugerido
 
