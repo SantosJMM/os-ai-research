@@ -1,6 +1,6 @@
-# OS Research
+# OS AI Research
 
-Laboratorio abierto de estudio e investigación sobre sistemas operativos, arquitecturas de computadores, kernels y agentes de IA como participantes de primera clase.
+**Operating Systems & AI Agents Research** — Laboratorio abierto para estudiar sistemas operativos, arquitecturas de computadores, kernels y agentes de IA como participantes de primera clase.
 
 ## Propósito
 
