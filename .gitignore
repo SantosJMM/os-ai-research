@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+**/target/
+**/__pycache__/
+*.log
+*.core
+*.qcow2
+*.img
+*.iso
+.DS_Store
