@@ -9,9 +9,10 @@ Esta línea de OS AI Research estudia **agentes de IA como software que interact
 - Comparar diseños convencionales con un sistema operativo que incorpore a la IA como participante de primera clase.
 
 ## Rutas
-- [Fundamentos de agentes](fundamentos/README.md) — [Issue #11](https://github.com/SantosJMM/os-research/issues/11)
-- [Agentes e integración con sistemas operativos](os-integration/README.md) — [Issue #12](https://github.com/SantosJMM/os-research/issues/12)
-- [Hipótesis específica de Thanos OS](../thanos-os/hipotesis.md) — [Issue #9](https://github.com/SantosJMM/os-research/issues/9)
+- [Fundamentos de agentes](fundamentos/README.md) — [Issue #11](https://github.com/SantosJMM/os-ai-research/issues/11)
+- [Agentes e integración con sistemas operativos](os-integration/README.md) — [Issue #12](https://github.com/SantosJMM/os-ai-research/issues/12)
+- [SASP — contrato semántico de aplicaciones y servicios](../protocolos/sasp/README.md) — [Issue #13](https://github.com/SantosJMM/os-ai-research/issues/13)
+- [Hipótesis específica de Thanos OS](../thanos-os/hipotesis.md) — [Issue #9](https://github.com/SantosJMM/os-ai-research/issues/9)
 
 ## Reglas de investigación
 1. Distinguir comportamiento del modelo de garantías comprobables del sistema.
