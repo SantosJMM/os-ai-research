@@ -206,6 +206,12 @@ La recomendación **no declara que SASP sea ya una extensión de MCP**, ni desca
 7. [MCP Apps — especificación de extensión](https://github.com/modelcontextprotocol/ext-apps/blob/main/specification/2026-01-26/apps.mdx)
 8. [MCP Registry — repositorio público de servidores](https://registry.modelcontextprotocol.io/)
 
-## 8. Alcance del resultado
+## 8. Implementación de referencia en Rust
+
+La prueba de concepto [SASP sobre MCP en Rust](../experiments/mcp-rust-stdio/README.md) expone los manifiestos y snapshots de los ejemplos como recursos MCP y sus métodos como herramientas tipadas. La [referencia inicial de Thanos Music](../../tup/archivo/05-contrato-semantico-thanos-music.md) conserva el objetivo semántico original: estado, métodos, eventos y contexto opcional de interfaz.
+
+La implementación inicial no incorpora aún notificaciones de actualización, suscripciones ni seguridad de producción. Las pruebas de integración y la compilación deben verificarse antes de considerarla un resultado experimental reproducible.
+
+## 9. Alcance del resultado
 
 Esta comparación identifica **mecanismos disponibles en estándares existentes** y **preguntas de diseño SASP**. No sustituye prototipos, pruebas de conformidad ni decisiones de implementación; el valor diferencial del perfil SASP permanece como hipótesis por validar.
