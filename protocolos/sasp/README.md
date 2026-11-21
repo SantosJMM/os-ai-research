@@ -14,6 +14,8 @@ Su objetivo es que el software pueda describirse semánticamente sin depender ex
 - **[Conceptos y vocabulario](docs/concepts.md):** definiciones consistentes de proveedor, instancia, capacidad, estado, método, evento, cliente y autoridad.
 - **[Contrato mínimo — borrador experimental](specification/draft/overview.md):** manifiestos de capacidades, instantáneas, eventos y límites de la propuesta.
 - **[Interoperabilidad con MCP 2026-07-28](docs/interoperability-mcp.md):** matriz de capacidades, mapeo de manifiestos y estados, límites identificados y experimentos de validación.
+- **[Experimento SASP sobre MCP en Rust](experiments/mcp-rust-stdio/README.md):** servidor MCP local de prueba con manifiestos, snapshots y herramientas; pendiente de validación ejecutable.
+- **[Contrato original de Thanos Music (TUP)](../tup/archivo/05-contrato-semantico-thanos-music.md):** los JSON de referencia y las cuatro dimensiones semánticas que fundamentan SASP.
 - **Ejemplos de contrato:** [Music Player](examples/music-player/manifest.json) ([estado](examples/music-player/state.snapshot.json)) y [Backup Daemon](examples/backup-daemon/manifest.json) ([estado](examples/backup-daemon/state.snapshot.json)).
 - [DECISION-0001 — Nombre y alcance](DECISION-0001-nombre-y-alcance.md).
 - [Antecedentes técnicos: de TUP a SASP](../tup/archivo/04-origen-hallazgos-evolucion.md).
