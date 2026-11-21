@@ -13,7 +13,7 @@ Aprender mediante teoría, lectura de código, experimentos reproducibles y docu
 - **[Agentes de IA](agentes-ai/README.md):** modelos, herramientas, runtimes, aislamiento, identidad, eventos y relación con el sistema operativo.
 - **Experimentos:** prototipos aislados, reproducibles y sin dependencias de producción.
 - **Comparativas:** criterios, mediciones y limitaciones verificables.
-- **[Thanos UI Protocol (TUP)](protocolos/tup/README.md):** protocolo propuesto para que las aplicaciones expongan estado, métodos, eventos y contexto de interfaz a la IA; investigación central, separada de los mecanismos de transporte y autorización.
+- **[SASP — Semantic Application & Service Protocol](protocolos/sasp/README.md):** propuesta de contrato semántico abierto para aplicaciones y servicios, con o sin interfaz gráfica; expone estado, capacidades, métodos, eventos y contexto de interacción, sin sustituir mecanismos nativos ni permisos. Anteriormente TUP.
 - **Thanos OS:** hipótesis, resultados y referencias a decisiones oficiales del proyecto principal.
 
 ## Método
