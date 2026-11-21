@@ -8,6 +8,14 @@
 
 Su objetivo es que el software pueda describirse semánticamente sin depender exclusivamente de pantallas, coordenadas, interfaces HTML o integraciones específicas por cada agente. **TUP (Thanos UI Protocol)** fue el nombre original de esta investigación; se reemplazó para que la propuesta pueda adoptarse independientemente de Thanos OS. Véanse el [origen y la evolución de TUP a SASP](../tup/archivo/04-origen-hallazgos-evolucion.md) y el [registro de decisión](DECISION-0001-nombre-y-alcance.md).
 
+## Documentación
+
+- **[Arquitectura de SASP](docs/architecture.md):** roles, contratos, flujos de descubrimiento e interacción, fronteras de confianza y opciones de interoperabilidad.
+- [DECISION-0001 — Nombre y alcance](DECISION-0001-nombre-y-alcance.md).
+- [Antecedentes técnicos: de TUP a SASP](../tup/archivo/04-origen-hallazgos-evolucion.md).
+
+La arquitectura es una **propuesta de estudio**; los esquemas normativos, transporte y mecanismos de conformidad siguen sujetos a investigación.
+
 ## Principios arquitectónicos
 
 1. **Aplicaciones y servicios por igual.** Una app GTK/Qt, un proceso sin ventana, un worker o un daemon pueden exponer SASP, directamente o mediante un adaptador.
