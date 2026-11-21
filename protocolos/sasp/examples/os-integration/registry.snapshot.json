@@ -1,0 +1,47 @@
+{
+  "kind": "registry.snapshot",
+  "revision": 12,
+  "installations": [
+    {
+      "package_id": "org.example.music",
+      "provider_id": "org.example.music",
+      "package_version": "0.1.0",
+      "installed": true,
+      "declared_capabilities": [
+        "player.play",
+        "player.set_volume"
+      ],
+      "semantic_index": [
+        "music.playback"
+      ]
+    },
+    {
+      "package_id": "org.example.backup",
+      "provider_id": "org.example.backup",
+      "package_version": "0.1.0",
+      "installed": true,
+      "declared_capabilities": [
+        "backup.verify"
+      ],
+      "semantic_index": [
+        "backup.verify"
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "provider_id": "org.example.music",
+      "instance_id": "music-01",
+      "generation": "demo-gen-001",
+      "process": {
+        "pid": 4250,
+        "identity_source": "test-supervisor"
+      },
+      "endpoint": {
+        "transport": "unix",
+        "availability": "ready",
+        "connection_ref": "music-handle-01"
+      }
+    }
+  ]
+}
