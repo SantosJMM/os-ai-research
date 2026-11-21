@@ -1,0 +1,17 @@
+{
+  "kind": "discovery.search.result",
+  "query": {
+    "capability": "music.playback",
+    "active_only": false
+  },
+  "results": [
+    {
+      "provider_id": "org.example.music",
+      "display_name": "Example Music",
+      "installed": true,
+      "availability": "ready",
+      "instance_id": "music-01",
+      "connection_ref": "music-handle-01"
+    }
+  ]
+}
