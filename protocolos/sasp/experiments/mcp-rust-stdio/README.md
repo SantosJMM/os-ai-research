@@ -2,6 +2,8 @@
 
 > **Estado:** primera prueba de concepto, no implementación normativa de SASP. Expone contratos de ejemplo con el SDK oficial de MCP para Rust (`rmcp`) y transporte `stdio`.
 
+**Posición dentro del proyecto:** este servidor es la **línea base OS-01 de Tools/Resources**; no implementa SASP Registry, Discovery, un gestor de instalación, identidad de proceso ni conexión mediada. Esos elementos están en el [plan OS-01 a OS-06](../os-integration/README.md) y en el [modelo de Registry/Discovery](../../docs/registry-discovery.md).
+
 ## Objetivo
 
 Validar el principio central de SASP: **una aplicación o servicio declara sus capacidades y estado para que los clientes los descubran**, sin depender de su interfaz gráfica y sin que el agente obtenga privilegios del sistema operativo.
@@ -70,7 +72,7 @@ SASP_DEMO_ALLOW_MUTATIONS=1 cargo run
 
 No implementa suscripciones, eventos push, replay, broker, registro local de procesos, MCP Apps, trabajo duradero, múltiples instancias, persistencia ni un modelo real de seguridad. Tampoco verifica interoperabilidad con versiones antiguas de MCP.
 
-La siguiente iteración deberá comprobar `subscriptions/listen`, notificaciones de actualización, reconexión y políticas efectivas, antes de decidir si SASP necesita mecanismos adicionales al perfil MCP.
+La siguiente iteración deberá comprobar primero **versión MCP soportada y compilación/ejecución real**, y después `subscriptions/listen`, notificaciones, reconexión y controles efectivos. **No se considera una implementación funcional de integración con el SO** hasta que Registry, Discovery y políticas se prueben separadamente.
 
 ## Referencias
 
