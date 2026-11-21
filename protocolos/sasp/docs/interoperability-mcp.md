@@ -174,11 +174,13 @@ Un bridge deberá detectar si el cliente/servidor habla **2026-07-28** o una rev
 
 ## 6. Recomendación técnica y criterio de decisión
 
-### Recomendación inicial: perfil semántico SASP sobre MCP
+### Recomendación inicial: SASP como integración de MCP con el sistema operativo
 
-**Primera vía de experimentación:** describir un proveedor SASP mediante recursos, herramientas y suscripciones de un servidor MCP 2026-07-28, aprovechando **MCP Apps solo para el caso de UI interactiva**.
+**Primera vía de experimentación:** reutilizar recursos, herramientas, suscripciones y extensiones MCP **dentro del ciclo de vida del sistema operativo**. El perfil semántico de aplicaciones es un componente; los ámbitos principales incluyen **Registry local**, **Discovery como servicio MCP**, **Connection**, **Lifecycle & Events** e **Integration & Presentation**. MCP Apps se aprovecha cuando hay una UI interactiva compatible, pero no se exige a apps GTK/Qt ni daemons.
 
-La recomendación **no declara que SASP sea ya una extensión de MCP**, ni descarta la opción de sockets Unix directos o broker para implementaciones nativas.
+Este enfoque **no declara a SASP una extensión oficial de MCP**, ni obliga a crear un transporte nuevo. El primer objetivo es demostrar registro, descubrimiento, conectividad, autorización y observación utilizando estándares MCP existentes.
+
+Ver la [arquitectura de integración con el SO](os-integration.md) y el [plan de pruebas de seis ejes](../experiments/os-integration/README.md).
 
 ### Experimentos antes de cerrar el diseño
 
