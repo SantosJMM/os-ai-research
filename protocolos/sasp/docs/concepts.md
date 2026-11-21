@@ -2,6 +2,12 @@
 
 > **Estado:** vocabulario de trabajo para la investigación de SASP. Los términos describen responsabilidades y relaciones; no establecen por sí mismos una API ni un formato de transporte normativo.
 
+## Marco de integración
+
+SASP se organiza alrededor de la **integración de servidores MCP con el sistema operativo**: catálogo de instalaciones, instancias comprobadas, búsqueda, conexión y observación. Un contrato semántico de recursos y herramientas describe capacidades del proveedor, pero **no sustituye Registry, Discovery ni los controles del SO**.
+
+**Diferencias de nombres:** **MCP Registry** publica metadatos de servidores en el ecosistema; **SASP Registry** administra información local de instalaciones/instancias; **MCP `server/discover`** describe las capacidades de un servidor MCP ya ubicado; **SASP Discovery** permite encontrar proveedores dentro del SO, potencialmente a través de un servidor MCP propio.
+
 ## 1. Software que participa en SASP
 
 ### Aplicación (`Application`)
@@ -11,6 +17,22 @@ Programa destinado a una función reconocible para usuarios u otros sistemas. Pu
 ### Servicio (`Service`)
 
 Función software ejecutada y gestionada en segundo plano, normalmente sin requerir una ventana. Un daemon, un worker o un servicio de copias de seguridad pueden exponer un contrato SASP sin adoptar una interfaz gráfica.
+
+### Paquete instalado (`Installed Package`)
+
+Artefacto registrado por el gestor de paquetes o instalador autorizado. Conserva versión y procedencia aunque **no exista una instancia en ejecución**. Los metadatos de distribución pueden reutilizar formatos del MCP Registry si resultan apropiados.
+
+### Registro local (`Host Registry`)
+
+Inventario operativo que combina, pero no confunde, **catálogo de paquetes/proveedores instalados** y **directorio de instancias activas verificadas**. Su fuente de verdad es el SO, no un campo JSON presentado por el proceso.
+
+### Descubrimiento del host (`Host Discovery`)
+
+Interfaz de búsqueda autorizada de proveedores por identidad o capacidades; primera alternativa: un **servidor MCP del SO** que expone herramientas y recursos, sin nuevos métodos de protocolo.
+
+### Conexión del host (`Host Connection`)
+
+Resolución de una instancia a un canal MCP permitido: proceso lanzado con `stdio`, socket Unix, HTTP o ruta mediada. Resolver una instancia no concede permisos sobre sus métodos.
 
 ### Proveedor (`Provider`)
 
@@ -67,13 +89,15 @@ Información opcional que ayuda a un cliente a interpretar, agrupar o presentar 
 | Rol | Significado |
 | --- | --- |
 | **Client** | Consumidor de contratos, estado, eventos y métodos. Puede ser un agente, CLI o GUI. |
-| **Registry** | Servicio opcional de localización e información de instancias. Encontrar un proveedor no autentica ni autoriza una operación. |
+| **SASP Discovery** | Servicio de búsqueda y resolución autorizada; se investiga como MCP Server del SO. |
+| **SASP Connection** | Integración de transportes MCP con rutas y permisos del host. |
+| **SASP Registry** | Catálogo local del SO: instalaciones e instancias activas verificadas, con estado de proceso y endpoint diferenciados. |
 | **Broker** | Intermediario opcional que puede encaminar conexiones, mensajes o suscripciones. |
-| **Bridge / Adapter** | Traducción entre SASP y otra interfaz o protocolo, por ejemplo MCP. |
+| **Bridge / Adapter** | Integra proveedores sin MCP o adapta presentaciones; la interfaz MCP se intenta reutilizar primero. |
 | **Presenter / Shell** | Cliente que genera una experiencia humana; puede consumir contexto de interacción o disponer de UI propia. |
 | **Security Authority** | Mecanismo externo que aplica identidad, políticas y controles efectivos de acceso. |
 
-Un mismo programa puede cumplir varios roles. **SASP no presupone un servicio separado para cada rol.**
+Un mismo programa puede cumplir varios roles. **SASP no presupone un servicio separado para cada rol.** **Registry y Discovery son responsabilidades separadas**, aunque una implementación pueda reunirlas.
 
 ## 4. Identidades y autorizaciones
 
@@ -111,14 +135,19 @@ Estos términos **no son nombres de métodos del protocolo**, sino parte del voc
 ## 7. Límites con tecnologías existentes
 
 - **Linux y APIs nativas:** mantienen procesos, señales, syscalls, servicios, cgroups, aislamiento y permisos; SASP no los reemplaza.
-- **MCP:** tiene herramientas, recursos, notificaciones y otros mecanismos que podrían cubrir parte del contrato. La investigación debe comparar reutilización con cualquier funcionalidad adicional.
+- **MCP:** es la **base de comunicación** que se investiga primero para Tools, Resources, suscripciones y extensiones. SASP estudia cómo integrarlo con instalaciones, instancias y políticas del SO, añadiendo convenciones solo con evidencia.
 - **MCP Apps:** ofrece una integración de UI interactiva dentro de hosts MCP compatibles; no es una obligación de presentación para SASP.
 - **Task Runtime:** administra trabajo de larga duración cuando el sistema lo requiera; el contrato semántico puede exponerlo sin absorber la responsabilidad de ejecución.
 - **Thanos OS:** posible implementación del modelo; sus nombres y mecanismos no son dependencias obligatorias de SASP.
+- **MCP Registry:** catálogo público y formato de distribución, distinto del registro local de instancias activas.
+- **MCP `server/discover`:** descubrimiento de las capacidades de un servidor concreto, distinto de encontrar aplicaciones en un equipo.
 
 ## 8. Referencias
 
 - [Arquitectura SASP](architecture.md)
+- [Integración MCP con el SO](os-integration.md)
+- [Registry y Discovery](registry-discovery.md)
+- [DECISION-0002 — Alcance de integración](../DECISION-0002-integracion-mcp-en-so.md)
 - [Contrato mínimo experimental](../specification/draft/overview.md)
 - [Decisión de nombre y alcance](../DECISION-0001-nombre-y-alcance.md)
 - [Model Context Protocol](https://modelcontextprotocol.io/specification)
