@@ -1,0 +1,10 @@
+{
+  "kind": "state.snapshot",
+  "provider_id": "org.example.backup",
+  "instance_id": "backup-01",
+  "revision": 12,
+  "state": {
+    "status": "idle",
+    "last_result": "completed"
+  }
+}
