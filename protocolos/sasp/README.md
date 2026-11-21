@@ -11,10 +11,13 @@ Su objetivo es que el software pueda describirse semánticamente sin depender ex
 ## Documentación
 
 - **[Arquitectura de SASP](docs/architecture.md):** roles, contratos, flujos de descubrimiento e interacción, fronteras de confianza y opciones de interoperabilidad.
+- **[Conceptos y vocabulario](docs/concepts.md):** definiciones consistentes de proveedor, instancia, capacidad, estado, método, evento, cliente y autoridad.
+- **[Contrato mínimo — borrador experimental](specification/draft/overview.md):** manifiestos de capacidades, instantáneas, eventos y límites de la propuesta.
+- **Ejemplos de contrato:** [Music Player](examples/music-player/manifest.json) ([estado](examples/music-player/state.snapshot.json)) y [Backup Daemon](examples/backup-daemon/manifest.json) ([estado](examples/backup-daemon/state.snapshot.json)).
 - [DECISION-0001 — Nombre y alcance](DECISION-0001-nombre-y-alcance.md).
 - [Antecedentes técnicos: de TUP a SASP](../tup/archivo/04-origen-hallazgos-evolucion.md).
 
-La arquitectura es una **propuesta de estudio**; los esquemas normativos, transporte y mecanismos de conformidad siguen sujetos a investigación.
+La arquitectura, el vocabulario y el contrato mínimo forman una **propuesta de estudio**; los esquemas normativos, transporte y mecanismos de conformidad siguen sujetos a investigación.
 
 ## Principios arquitectónicos
 
