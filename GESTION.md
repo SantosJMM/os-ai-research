@@ -17,7 +17,7 @@ Usar las etiquetas `estado:pendiente`, `estado:estudiando`, `estado:experimentan
 
 ## GitHub Projects — tablero previsto
 
-Crear un proyecto de tipo Board titulado **OS Research — Learning & Experiments** desde https://github.com/users/SantosJMM/projects . Agregar los Issues #1 a #9 y configurar columnas de estado Pendiente, Estudiando, Experimentando, Documentando y Completado.
+Proyecto creado: [OS Research — GitHub Project #4](https://github.com/users/SantosJMM/projects/4/views/1). Actualmente aparece con el nombre provisional de GitHub y sin elementos. Renombrarlo **OS Research — Learning & Experiments**, agregar los Issues #1 a #9 y configurar estados Pendiente, Estudiando, Experimentando, Documentando y Completado.
 
 Vistas propuestas:
 - **Tablero**: agrupar por Estado.
