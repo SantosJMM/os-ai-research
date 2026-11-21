@@ -6,7 +6,7 @@
 
 **SASP** (*Semantic Application & Service Protocol*, «Protocolo Semántico de Aplicaciones y Servicios») es nuestra propuesta de un contrato abierto mediante el cual **aplicaciones gráficas, aplicaciones sin interfaz y servicios/daemons** exponen su **identidad, estado, capacidades, métodos, eventos y contexto de interacción** a agentes de IA y otros clientes.
 
-Su objetivo es que el software pueda describirse semánticamente sin depender exclusivamente de pantallas, coordenadas, interfaces HTML o integraciones específicas por cada agente. **TUP (Thanos UI Protocol)** fue el nombre original de esta investigación; se reemplazó para que la propuesta pueda adoptarse independientemente de Thanos OS. Véase [registro de decisión](DECISION-0001-nombre-y-alcance.md).
+Su objetivo es que el software pueda describirse semánticamente sin depender exclusivamente de pantallas, coordenadas, interfaces HTML o integraciones específicas por cada agente. **TUP (Thanos UI Protocol)** fue el nombre original de esta investigación; se reemplazó para que la propuesta pueda adoptarse independientemente de Thanos OS. Véanse el [origen y la evolución de TUP a SASP](../tup/archivo/04-origen-hallazgos-evolucion.md) y el [registro de decisión](DECISION-0001-nombre-y-alcance.md).
 
 ## Principios arquitectónicos
 
