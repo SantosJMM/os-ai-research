@@ -129,6 +129,8 @@ El registro local conserva **dos planos de información**:
 
 El formato `server.json` del MCP Registry es una **fuente candidata de metadatos de instalación**, pero no reemplaza la verificación de instancias activas.
 
+El [resultado JSON de ejemplo](../../examples/os-integration/discovery.search.result.json) corresponde a un índice semántico experimental `music.playback`. Esa etiqueta no es una herramienta MCP por sí sola; Registry/Discovery deben relacionarla con capacidades declaradas como `player.play` y `player.set_volume`.
+
 ## Casos de prueba OS-03
 
 1. **Instalado sin ejecutar:** búsqueda devuelve `installed: true`, sin `instance_id` ni endpoint activo.
