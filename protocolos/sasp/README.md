@@ -73,6 +73,6 @@ La aplicación es responsable de su lógica. Una operación privilegiada debe se
 - **Thanos OS:** posible implementador nativo, pero no requisito de adopción.
 - **MCP y MCP Apps:** tecnologías para evaluar interoperabilidad; sus capacidades no se atribuyen automáticamente a SASP.
 
-**Seguimiento:** [Issue #13 — SASP](https://github.com/SantosJMM/os-ai-research/issues/13) · [Roadmap](../../roadmap.md).
+**Seguimiento:** [Issue #13 — SASP](https://github.com/SantosJMM/os-ai-research/issues/13) · [Roadmap](../../roadmap.md) · [Archivo histórico de TUP y ejemplos JSON reconstruidos](../tup/archivo/README.md).
 
 Este documento es una **declaración de nombre, alcance y objetivos de investigación**, no un estándar ratificado ni un contrato de wire format listo para implementar.
