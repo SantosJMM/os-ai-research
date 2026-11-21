@@ -1,0 +1,3 @@
+# comparativas
+
+Pendiente de investigación.
