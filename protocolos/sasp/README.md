@@ -4,11 +4,22 @@
 > **Pronunciación propuesta:** «Sasp» (una sílaba; inglés /sæsp/, español /sasp/).  
 > **Estado técnico:** investigación / borrador; **no** existe una especificación v1.0 ni se afirma interoperabilidad implementada.
 
-**SASP** (*Semantic Application & Service Protocol*, «Protocolo Semántico de Aplicaciones y Servicios») es nuestra propuesta de un contrato abierto mediante el cual **aplicaciones gráficas, aplicaciones sin interfaz y servicios/daemons** exponen su **identidad, estado, capacidades, métodos, eventos y contexto de interacción** a agentes de IA y otros clientes.
+**SASP** (*Semantic Application & Service Protocol*, «Protocolo Semántico de Aplicaciones y Servicios») es una propuesta para **integrar aplicaciones y servicios con sistemas operativos aprovechando MCP y MCP Apps**: definir cómo se instalan y registran, cómo se descubren, cómo se conectan, cómo se observa su ciclo de vida y cómo se utilizan sus capacidades por agentes y clientes humanos. El **contrato semántico** (identidad, estado, métodos, eventos y contexto de interacción) es una pieza de esa integración, **no todo SASP**.
 
 Su objetivo es que el software pueda describirse semánticamente sin depender exclusivamente de pantallas, coordenadas, interfaces HTML o integraciones específicas por cada agente. **TUP (Thanos UI Protocol)** fue el nombre original de esta investigación; se reemplazó para que la propuesta pueda adoptarse independientemente de Thanos OS. Véanse el [origen y la evolución de TUP a SASP](../tup/archivo/04-origen-hallazgos-evolucion.md) y el [registro de decisión](DECISION-0001-nombre-y-alcance.md).
 
+## Enfoque de investigación
+
+**MCP primero, integración con el sistema operativo como objetivo principal.** SASP no reemplaza MCP, no obliga a un transporte propio y no pretende duplicar su catálogo de herramientas, recursos, suscripciones ni extensiones. Define y experimenta lo que un SO necesita alrededor de esos mecanismos.
+
+Los seis ejes son: **Application & Service Contract**, **SASP Registry**, **SASP Discovery**, **SASP Connection**, **SASP Lifecycle & Events** y **MCP Integration & Presentation**. Las extensiones SASP solo se justifican tras comprobar límites concretos de MCP o MCP Apps.
+
+La identidad de **SASP Registry local** es diferente del MCP Registry público; y `server/discover` describe un servidor MCP localizado, no todas las aplicaciones del equipo.
+
 ## Documentación
+
+- **[Integración MCP con el sistema operativo](docs/os-integration.md):** dirección arquitectónica y seis ejes de SASP, incluidos registro, descubrimiento, conexión, ciclo de vida y eventos.
+- **[Plan de seis experimentos de integración](experiments/os-integration/README.md):** hipótesis, pruebas, evidencias y criterios para reutilizar o extender MCP.
 
 - **[Arquitectura de SASP](docs/architecture.md):** roles, contratos, flujos de descubrimiento e interacción, fronteras de confianza y opciones de interoperabilidad.
 - **[Conceptos y vocabulario](docs/concepts.md):** definiciones consistentes de proveedor, instancia, capacidad, estado, método, evento, cliente y autoridad.
