@@ -31,14 +31,15 @@ OS Research emplea **C, Rust y Assembly** según lo que facilite la comprensión
 | 09 | IA como participante de primera clase (Thanos OS) | [#9](https://github.com/SantosJMM/os-research/issues/9) |
 | 10 | **Fundamentos de agentes de IA: modelos, herramientas y runtime** | [#11](https://github.com/SantosJMM/os-research/issues/11) |
 | 11 | **Agentes y sistemas operativos: autoridad, aislamiento y eventos** | [#12](https://github.com/SantosJMM/os-research/issues/12) |
+| 12 | **TUP Protocol: contrato entre aplicaciones, humanos y agentes de IA** | [#13](https://github.com/SantosJMM/os-research/issues/13) |
 
 ## Orden de trabajo sugerido
 
 **Ruta de sistemas operativos:** 00 → 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08.
 
-**Ruta paralela de agentes de IA:** 10 → 11. No requiere terminar toda la ruta de sistemas operativos antes de comenzar.
+**Ruta paralela de agentes de IA:** 10 → 11 → 12. TUP (#13) se investiga en paralelo al IPC (#3), y su integración en Thanos OS se evalúa en #9. No requiere terminar toda la ruta de sistemas operativos antes de comenzar.
 
-**Investigación integradora:** 09 conecta ambas rutas y evalúa la hipótesis particular de Thanos OS.
+**Investigación integradora:** 09 conecta ambas rutas, incluyendo TUP, y evalúa la hipótesis particular de Thanos OS.
 
 **Laboratorio transversal:** los temas 03, 09, 10 y 11 pueden explorarse en paralelo con Thanos OS, sin introducir cambios en su repositorio hasta completar pruebas y revisar decisiones.
 
