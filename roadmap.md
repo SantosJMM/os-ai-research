@@ -13,7 +13,7 @@ Objetivo: construir conocimiento técnico verificable sobre sistemas operativos 
 
 ## Enfoque de lenguajes
 
-OS Research emplea **C, Rust y Assembly** según lo que facilite la comprensión. Thanos OS mantiene Rust como lenguaje principal; no es necesario portar cada laboratorio a Rust.
+OS AI Research emplea **C, Rust y Assembly** según lo que facilite la comprensión. Thanos OS mantiene Rust como lenguaje principal; no es necesario portar cada laboratorio a Rust.
 
 ## Unidades e Issues
 
