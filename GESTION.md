@@ -17,7 +17,7 @@ Usar las etiquetas `estado:pendiente`, `estado:estudiando`, `estado:experimentan
 
 ## GitHub Projects — tablero previsto
 
-[OS Research — Learning & Experiments (GitHub Project #4)](https://github.com/users/SantosJMM/projects/4/views/1). El tablero fue configurado en una sesión separada. Los Issues #1 a #9 son las unidades originales; el [Issue #10](https://github.com/SantosJMM/os-research/issues/10) añadió Arquitectura de computadores y los Issues [#11](https://github.com/SantosJMM/os-research/issues/11) y [#12](https://github.com/SantosJMM/os-research/issues/12) incorporaron agentes de IA. Verificar que los tres nuevos Issues estén incluidos en Projects.
+[OS Research — Learning & Experiments (GitHub Project #4)](https://github.com/users/SantosJMM/projects/4/views/1). El tablero fue configurado en una sesión separada. Los Issues #1 a #9 son las unidades originales; el [Issue #10](https://github.com/SantosJMM/os-research/issues/10) añadió Arquitectura de computadores y los Issues [#11](https://github.com/SantosJMM/os-research/issues/11) y [#12](https://github.com/SantosJMM/os-research/issues/12) incorporaron agentes de IA, y el [Issue #13](https://github.com/SantosJMM/os-research/issues/13) creó la línea TUP Protocol. Verificar que los cuatro Issues añadidos estén incluidos en Projects.
 
 Vistas propuestas:
 - **Tablero**: agrupar por Estado.
