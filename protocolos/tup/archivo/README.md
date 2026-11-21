@@ -1,27 +1,20 @@
-# Archivo de investigación de TUP
+# Archivo técnico de TUP
 
-**TUP = Thanos UI Protocol**. Esta carpeta reúne el historial de la propuesta anterior a SASP.
+**TUP — Thanos UI Protocol** fue el nombre original de esta línea de investigación, posteriormente denominada **SASP — Semantic Application & Service Protocol**.
 
-## Qué se conserva exactamente
+El archivo reúne los principales conceptos de diseño de TUP: entidades, contratos, estructura de mensajes, acciones, modelos de ejecución y seguridad.
 
-- [README original de TUP](../README.md): restaurado desde una revisión anterior al cambio de nombre; sus bytes coinciden con el archivo histórico en Git.
+## Documentos
 
-## Reconstrucciones técnicas del diseño discutido
+- [README inicial de TUP](../README.md) — visión, alcance y primeros experimentos.
+- [01 — TUP v0.1: Task, View y App](01-propuesta-v01.md) — arquitectura y responsabilidades conceptuales.
+- [02 — Ejemplos JSON y JSON-RPC](02-ejemplos-json.md) — manifiestos, eventos, solicitudes y respuestas.
+- [03 — Acciones, permisos y Task Runtime](03-acciones-y-runtime.md) — ejecución, autorizaciones, cancelación y recuperación.
 
-- [01 — Propuesta TUP v0.1: Task, View y App](01-propuesta-v01.md)
-- [02 — Ejemplos de JSON y JSON-RPC](02-ejemplos-json.md)
-- [03 — Acciones, permisos, Task Runtime y decisiones abiertas](03-acciones-y-runtime.md)
+## Estado de diseño
 
-> **Importante:** estos tres anexos son una **reconstrucción documentada de conversaciones anteriores**, no una transcripción textual verificable. Los nombres conocidos de conceptos, eventos y operaciones se han conservado; los campos de las estructuras de ejemplo que no pudimos comprobar se señalan como ilustrativos.
+Los anexos contienen **propuestas técnicas y ejemplos no normativos**. Las estructuras ilustran el modelo de interacción, pero todavía requieren especificar esquemas, transporte, seguridad, errores y garantías de interoperabilidad.
 
-## Procedencia y limitación
+## Evolución
 
-La conversación histórica aportada por el autor se compartió mediante este [enlace de ChatGPT](https://chatgpt.com/share/e/6b02178e-a730-83ea-a6ce-79e8c5922094). El enlace no devolvió su texto desde las herramientas de consulta disponibles durante esta actualización. La reconstrucción utiliza el historial contextual recuperable de las conversaciones del **27 y 28 de octubre de 2026**, además del documento TUP existente en el repositorio.
-
-Por esa limitación, **no llamamos «texto original» a los ejemplos JSON inventariados aquí**. Si se obtiene el cuerpo literal del chat, se puede archivarlo como transcripción separada, sin sustituir silenciosamente esta reconstrucción.
-
-## Continuidad del proyecto
-
-- **TUP**: etapa histórica de diseño en Thanos OS.
-- **[SASP — Semantic Application & Service Protocol](../../sasp/README.md)**: nombre vigente de la investigación independiente.
-- Las propuestas antiguas no implican que su implementación haya sido aprobada o completada.
+La investigación continúa bajo el nombre [SASP](../../sasp/README.md), con alcance independiente de Thanos OS y abierto a aplicaciones y servicios con o sin interfaz gráfica.
