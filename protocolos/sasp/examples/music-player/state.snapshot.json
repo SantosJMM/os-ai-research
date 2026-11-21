@@ -1,0 +1,11 @@
+{
+  "kind": "state.snapshot",
+  "provider_id": "org.example.music",
+  "instance_id": "music-01",
+  "revision": 7,
+  "state": {
+    "playback": "paused",
+    "track": "Demo Track",
+    "volume": 45
+  }
+}
