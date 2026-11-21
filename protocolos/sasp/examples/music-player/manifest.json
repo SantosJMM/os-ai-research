@@ -1,0 +1,146 @@
+{
+  "sasp_version": "draft-01",
+  "provider": {
+    "id": "org.example.music",
+    "name": "Example Music",
+    "kind": "desktop",
+    "version": "0.1.0"
+  },
+  "capabilities": {
+    "state": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "playback": {
+            "type": "string",
+            "enum": [
+              "playing",
+              "paused",
+              "stopped"
+            ]
+          },
+          "track": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "volume": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "playback",
+          "track",
+          "volume"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "methods": [
+      {
+        "name": "player.play",
+        "description": "Resume playback",
+        "effect": "act",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "accepted": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "accepted"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "player.set_volume",
+        "description": "Set volume from 0 to 100",
+        "effect": "act",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "volume": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "volume"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "accepted": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "accepted"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": "playback.changed",
+        "description": "Playback state changed",
+        "dataSchema": {
+          "type": "object",
+          "properties": {
+            "playback": {
+              "type": "string",
+              "enum": [
+                "playing",
+                "paused",
+                "stopped"
+              ]
+            }
+          },
+          "required": [
+            "playback"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "volume.changed",
+        "description": "Volume changed",
+        "dataSchema": {
+          "type": "object",
+          "properties": {
+            "volume": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "volume"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ]
+  },
+  "interaction": {
+    "title": "Music Player",
+    "primary_methods": [
+      "player.play",
+      "player.set_volume"
+    ]
+  }
+}
