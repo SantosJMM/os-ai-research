@@ -184,7 +184,13 @@ En Thanos OS, Capsuleer no debe recibir por resolución un endpoint que eluda la
 
 **Secuencia recomendada:** probar primero el modelo de datos local como componente Rust sin root, después el servicio Discovery basado en MCP; solo entonces comparar socket directo y broker.
 
-## 8. Relaciones
+## 8. Ejemplos de datos del host
+
+- [Catálogo e instancias](../examples/os-integration/registry.snapshot.json)
+- [Resultado de Discovery](../examples/os-integration/discovery.search.result.json)
+- [Notas y límites de los ejemplos](../examples/os-integration/README.md)
+
+## 9. Relaciones
 
 - [SASP — integración del sistema operativo](os-integration.md)
 - [Arquitectura de SASP](architecture.md)
