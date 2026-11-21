@@ -23,33 +23,42 @@ Los componentes son **responsabilidades lógicas**; no se exige implementar cada
 ## 2. Modelo conceptual
 
 ```text
-                CONSUMIDORES
-     +----------------+----------------+
-     | Agente / CLI   | GUI / Shell    |
-     +----------------+----------------+
-             |                  |
-             +---- Cliente SASP-+
-                        |
-         descubrimiento / conexión / sesión
-                        |
-              [adaptador opcional]
-                        |
-                Contrato SASP
-       identidad | capacidades | estado
-          métodos | eventos | contexto
-                        |
-                Proveedor SASP
-               (app / servicio)
-                        |
-         API y lógica nativa de la aplicación
-                        |
-       SO / kernel / servicios / recursos
+              SISTEMA OPERATIVO
+         +------------------------+
+         | Gestor de paquetes     |
+         | Supervisor de procesos |
+         +-----------+------------+
+                     |
+             SASP Registry
+         instalaciones + instancias
+                     |
+             SASP Discovery
+           servidor MCP del SO
+                     |
+          búsqueda y resolución
+                     |
+     +---------------+----------------+
+     |                                |
+Capsuleer / agente                Shell / GUI
+     |                                |
+     +---------- MCP Client ----------+
+                     |
+             SASP Connection
+            stdio / Unix / HTTP
+             o ruta mediada
+                     |
+           Aplicación / daemon
+          MCP Tools / Resources
+          Subscriptions / Tasks
+        MCP Apps opcional / GUI nativa
+                     |
+         APIs y mecanismos del SO
 
-  Registro o broker: componente opcional de descubrimiento
-  y/o intermediación; no confiere autorización por sí mismo.
-  Autoridad de seguridad: externa a la descripción semántica;
-  valida clientes y operaciones donde corresponda.
+  Autoridad del host: autenticación, autorización
+  efectiva, aislamiento, supervisión y auditoría.
 ```
+
+Los componentes Registry y Discovery son **funciones de integración del SO**; pueden compartir un proceso, pero no confunden catálogo con consulta. El broker es una opción de conexión, no un requisito universal. **El contrato semántico se expresa preferentemente con mecanismos MCP existentes.**
 
 **SASP describe y coordina interacciones; no sustituye el sistema operativo.** Las operaciones nativas conservan sus mecanismos de ejecución, supervisión, aislamiento y control de acceso.
 
@@ -59,15 +68,22 @@ Los componentes son **responsabilidades lógicas**; no se exige implementar cada
 | --- | --- | --- |
 | **Proveedor SASP (Provider)** | Expone identidad, capacidades, estado observable, eventos y puntos de operación asociados a una aplicación o servicio. | Que el cliente posee permisos por haber descubierto la operación. |
 | **Cliente SASP (Client)** | Descubre proveedores, interpreta contratos, consulta estados y solicita operaciones. | Privilegios directos sobre el proveedor o el sistema. |
-| **Registro (Registry, opcional)** | Localiza proveedores/instancias y su información de disponibilidad; permite distinguir instalado de activo. | Ejecutar acciones autorizadas solo por estar registradas. |
+| **SASP Discovery (función del SO)** | Expone búsqueda autorizada de proveedores y resolución de instancias, inicialmente mediante un servidor MCP del host. | Tratar `server/discover` como catálogo de todas las aplicaciones del sistema. |
+| **SASP Connection (función del SO)** | Resuelve rutas autorizadas y utiliza transportes MCP existentes o mediación cuando corresponde. | Conceder acceso por haber descubierto una instancia. |
+| **SASP Registry (función del SO)** | Mantiene inventario instalado e instancias activas verificadas; diferencia disponibilidad del proceso y del endpoint. | Sustituir al gestor de paquetes o confiar en IDs/PIDs autodeclarados. |
 | **Broker (opcional)** | Media conexiones y, si se decide, encaminamiento, suscripciones y reconexión. | Ser obligatorio para todas las topologías. |
-| **Adaptador / Bridge (opcional)** | Traduce capacidades hacia protocolos o clientes externos, por ejemplo MCP. | Omitir la identidad, los controles de acceso o las garantías del proveedor. |
+| **Adaptador / Bridge (opcional)** | Integra software que no ofrece MCP o traduce entre implementaciones y clientes; MCP es la base que se evalúa primero. | Omitir la identidad, los controles de acceso o las garantías del proveedor. |
 | **Presentador (Shell / UI)** | Construye una experiencia humana a partir de información semántica, o utiliza una UI propia. | Que todos los proveedores tengan vistas gráficas. |
 | **Autoridad de seguridad** | Autentica identidades, decide permisos, restringe efectos y registra operaciones relevantes según el sistema anfitrión. | Que un manifiesto o prompt sustituya las comprobaciones efectivas. |
 
 Un mismo proceso puede implementar varios roles. **Los roles son separaciones lógicas**, no una obligación de desplegar un daemon por cada uno.
 
+Para el modelo de instalación, registro, búsqueda y reconciliación, véase [Registry y Discovery](registry-discovery.md).
+
 ## 4. Modelo de información del proveedor
+
+La información del proveedor es **un componente dentro de la integración con el SO**, no una alternativa completa a MCP. Las estructuras de ejemplo ilustran qué datos podrían transportarse como recursos o metadatos MCP. El registro local y el directorio de instancias pertenecen al entorno operativo. Las herramientas de métodos ya declaradas mediante MCP no deben duplicarse como una fuente contradictoria de verdad.
+
 
 Se investigan seis dimensiones, deliberadamente independientes del transporte:
 
@@ -184,7 +200,7 @@ En un despliegue hipotético, **Capsuleer** consumiría contratos SASP mediante 
 
 ## 8. Transporte e interoperabilidad
 
-**La semántica se define antes de elegir su canal.** Se consideran al menos tres rutas de experimentación:
+**MCP es la base de comunicación que se reutiliza primero.** Los transportes oficiales o personalizados compatibles con MCP se compararán en el contexto del aislamiento y despliegue local; no se propone un nuevo formato de RPC como requisito inicial:
 
 | Ruta | Ventajas candidatas | Costes o riesgos por medir |
 | --- | --- | --- |
@@ -228,6 +244,10 @@ La primera validación recomendada es una **aplicación de música simulada** y 
 
 ## 11. Documentos relacionados
 
+- [SASP como integración MCP con el SO](os-integration.md)
+- [Registry y Discovery](registry-discovery.md)
+- [DECISION-0002 — Alcance de integración MCP](../DECISION-0002-integracion-mcp-en-so.md)
+
 - [Conceptos y vocabulario SASP](concepts.md)
 - [Comparación e interoperabilidad con MCP](interoperability-mcp.md)
 - [Contrato mínimo experimental — draft](../specification/draft/overview.md)
@@ -240,4 +260,4 @@ La primera validación recomendada es una **aplicación de música simulada** y 
 - [MCP — especificación oficial](https://modelcontextprotocol.io/specification)
 - [MCP Apps — extensión y ejemplos](https://github.com/modelcontextprotocol/ext-apps)
 
-**Objetivo de esta arquitectura:** conservar un núcleo semántico útil para aplicaciones y servicios, con representación opcional, seguridad verificable y posibilidad de interoperar con protocolos existentes sin comprometer prematuramente el diseño.
+**Objetivo de esta arquitectura:** integrar MCP y sus extensiones con el registro, descubrimiento, conexiones y ciclo de vida del sistema operativo, manteniendo representación opcional, seguridad verificable y evitando nuevos protocolos sin evidencia de necesidad.
