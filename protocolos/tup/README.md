@@ -1,12 +1,20 @@
-# TUP Protocol — línea de investigación
+# Thanos UI Protocol (TUP) — línea de investigación
 
-[Issue #13: TUP Protocol](https://github.com/SantosJMM/os-research/issues/13)
+[Issue #13: Thanos UI Protocol](https://github.com/SantosJMM/os-research/issues/13)
+
+## Definición
+
+**TUP** significa **Thanos UI Protocol** (*Protocolo de Interfaz de Usuario de Thanos*).
+
+Es el protocolo mediante el cual las aplicaciones exponen su **estado, métodos, eventos y contexto de interfaz** para comunicarse con la IA.
+
+Esta es la definición central del proyecto. Las capacidades adicionales, los transportes, permisos, esquemas y garantías son aspectos de diseño e investigación, no parte obligatoria de la expansión del acrónimo.
 
 ## Visión
 
 Investigar un **contrato nativo entre aplicaciones, humanos y agentes de IA** para un sistema operativo en el que la IA sea un participante de primera clase.
 
-En la propuesta actual, las aplicaciones exponen de forma estructurada sus **estados, capacidades, métodos y eventos**, así como información que permite representar o controlar interfaces gráficas y semánticas. El agente no debe depender únicamente de capturas de pantalla, coordenadas o controles visuales.
+En la propuesta actual, las aplicaciones exponen de forma estructurada su **estado, métodos, eventos y contexto de interfaz**; se investiga además cómo representar capacidades y acciones mediante contratos tipados. El agente no debe depender únicamente de capturas de pantalla, coordenadas o controles visuales.
 
 **TUP es una idea de protocolo en diseño**, no una especificación estable ni una funcionalidad que se presuma implementada en todas las aplicaciones de Thanos OS.
 
