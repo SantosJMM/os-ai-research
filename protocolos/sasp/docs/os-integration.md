@@ -70,6 +70,8 @@ Un proveedor instalado puede estar inactivo; un endpoint desconectado puede pert
 
 **No es MCP Registry:** el catálogo público puede contribuir información de instalación, pero no sustituye el registro local confiable del host.
 
+**Reutilización a investigar:** el [formato `server.json` del MCP Registry](https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/server-json/generic-server-json.md) ya define metadatos de distribución y configuración de servidores. El catálogo de instalaciones SASP **debería evaluar su reutilización** antes de crear otro manifiesto de paquetes. La información del **runtime local** (instancia, estado del proceso, identidad autenticada y endpoint disponible) sigue necesitando mecanismos del SO, aunque se utilicen componentes de un registro compatible.
+
 ### Eje 3 — SASP Discovery
 
 **Pregunta:** ¿cómo descubre un cliente las aplicaciones y servicios disponibles para él?
