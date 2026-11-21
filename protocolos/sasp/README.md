@@ -20,6 +20,7 @@ La identidad de **SASP Registry local** es diferente del MCP Registry público; 
 
 - **[Integración MCP con el sistema operativo](docs/os-integration.md):** dirección arquitectónica y seis ejes de SASP, incluidos registro, descubrimiento, conexión, ciclo de vida y eventos.
 - **[Plan de seis experimentos de integración](experiments/os-integration/README.md):** hipótesis, pruebas, evidencias y criterios para reutilizar o extender MCP.
+- **[SASP Discovery mediante MCP](experiments/os-integration/discovery-mcp.md):** ejemplo de servidor del SO, búsqueda de aplicaciones por capacidad y resolución segura de instancias.
 
 - **[Arquitectura de SASP](docs/architecture.md):** roles, contratos, flujos de descubrimiento e interacción, fronteras de confianza y opciones de interoperabilidad.
 - **[Conceptos y vocabulario](docs/concepts.md):** definiciones consistentes de proveedor, instancia, capacidad, estado, método, evento, cliente y autoridad.
