@@ -1,4 +1,4 @@
-# Roadmap de estudio de sistemas operativos
+# OS AI Research — Roadmap de sistemas operativos y agentes de IA
 
 Objetivo: construir conocimiento técnico verificable sobre sistemas operativos **y agentes de IA**, mediante teoría, lectura de código fuente, experimentos repetibles y documentación. Este repositorio es independiente del código de Thanos OS.
 
