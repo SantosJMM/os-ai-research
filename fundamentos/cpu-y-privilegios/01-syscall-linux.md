@@ -1,6 +1,6 @@
 # Laboratorio 01 — Del programa Rust al kernel Linux
 
-**Issue:** [#1](https://github.com/SantosJMM/os-research/issues/1)
+**Issue:** [#1](https://github.com/SantosJMM/os-ai-research/issues/1)
 
 ## Pregunta
 
