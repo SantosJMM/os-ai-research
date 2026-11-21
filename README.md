@@ -13,6 +13,7 @@ Aprender mediante teoría, lectura de código, experimentos reproducibles y docu
 - **[Agentes de IA](agentes-ai/README.md):** modelos, herramientas, runtimes, aislamiento, identidad, eventos y relación con el sistema operativo.
 - **Experimentos:** prototipos aislados, reproducibles y sin dependencias de producción.
 - **Comparativas:** criterios, mediciones y limitaciones verificables.
+- **[TUP Protocol](protocolos/tup/README.md):** contrato semántico de aplicaciones para interfaces humanas y agentes, desacoplado del transporte; investigación central.
 - **Thanos OS:** hipótesis, resultados y referencias a decisiones oficiales del proyecto principal.
 
 ## Método
