@@ -1,6 +1,6 @@
 # OS Research
 
-Laboratorio abierto de estudio e investigación sobre sistemas operativos, kernels y arquitecturas orientadas a IA.
+Laboratorio abierto de estudio e investigación sobre sistemas operativos, arquitecturas de computadores, kernels y agentes de IA como participantes de primera clase.
 
 ## Propósito
 
@@ -10,6 +10,7 @@ Aprender mediante teoría, lectura de código, experimentos reproducibles y docu
 
 - **Fundamentos:** CPU, memoria, procesos, IPC y seguridad.
 - **Kernels:** Linux, Redox OS, Asterinas y seL4.
+- **[Agentes de IA](agentes-ai/README.md):** modelos, herramientas, runtimes, aislamiento, identidad, eventos y relación con el sistema operativo.
 - **Experimentos:** prototipos aislados, reproducibles y sin dependencias de producción.
 - **Comparativas:** criterios, mediciones y limitaciones verificables.
 - **Thanos OS:** hipótesis, resultados y referencias a decisiones oficiales del proyecto principal.
