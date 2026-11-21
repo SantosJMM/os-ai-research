@@ -1,10 +1,10 @@
-# TUP histórico — Ejemplos JSON y JSON-RPC
+# TUP — Ejemplos JSON y JSON-RPC
 
-> **Reconstrucción técnica, no transcripción textual.** Los siguientes JSON son **ejemplos ilustrativos** compuestos a partir de los conceptos que discutimos el 27 y 28 de octubre de 2026. No se afirma que la versión original utilizara exactamente estos nombres de campos, payloads o métodos. Se preservan como conocidos los conceptos **Task / View / App**, JSON-RPC 2.0, **task.progress**, **task.completed**, **view.publish**, y las acciones **project.open**, **project.explore**, **project.test.run**.
+> **Estado:** ejemplos de diseño preliminar, no normativos. Los campos, métodos y esquemas requieren validación antes de formar parte de una especificación estable.
 
 ## 1. Transporte de la propuesta inicial
 
-La aproximación discutida fue **JSON-RPC 2.0 sobre socket Unix**, con delimitación de longitud por mensaje.
+La propuesta inicial considera **JSON-RPC 2.0 sobre socket Unix**, con delimitación de longitud por mensaje.
 
 ~~~text
 [longitud del mensaje][objeto JSON-RPC UTF-8]
@@ -12,11 +12,11 @@ La aproximación discutida fue **JSON-RPC 2.0 sobre socket Unix**, con delimitac
 ...
 ~~~
 
-**Todavía no había una decisión normativa verificable sobre el tamaño, endianess ni interpretación exacta del prefijo**, ni sobre usar un socket directo frente a un broker.
+Quedan por definir el tamaño, el orden de bytes y la interpretación del prefijo, así como la elección entre socket directo y broker.
 
 ## 2. Ejemplo de manifiesto de aplicación (AppManifest)
 
-Ejemplo reconstruido de cómo una app podría presentar su identidad, estado, acciones, eventos y contexto de interfaz:
+Un manifiesto de aplicación puede representar su identidad, estado, acciones, eventos y contexto de interfaz:
 
 ~~~json
 {
@@ -75,7 +75,7 @@ Ejemplo reconstruido de cómo una app podría presentar su identidad, estado, ac
 
 ## 3. Descubrimiento y registro de app
 
-El siguiente método **app.register** es ilustrativo; lo conocido de la discusión es que se planteó un registro de aplicaciones e instancias.
+El método **app.register** ilustra una opción de registro de aplicaciones e instancias, pendiente de normalización.
 
 ~~~json
 {
@@ -106,7 +106,7 @@ El registro debería verificar identidad de proceso/cliente mediante mecanismos 
 
 ## 4. Estado de una aplicación y revisión
 
-Ejemplo de snapshot ilustrativo. La idea de revisiones se discutió para evitar que un agente actúe sobre información obsoleta.
+Ejemplo de snapshot de estado con revisión para detectar acciones basadas en información obsoleta.
 
 ~~~json
 {
@@ -125,7 +125,7 @@ Un cliente podría recibir un nuevo snapshot tras reconectar; **cómo se solicit
 
 ## 5. Publicación de una View declarativa
 
-**view.publish** es un nombre de evento conocido de la propuesta inicial. El esquema concreto siguiente es ilustrativo.
+**view.publish** representa la publicación de una vista declarativa. El esquema es ilustrativo.
 
 ~~~json
 {
@@ -160,7 +160,7 @@ El nodo **button** anuncia una acción registrada. **No ejecuta por sí solo** c
 
 ## 6. Solicitud de una acción tipada
 
-Ejemplo reconstruido de **ActionRequest**. La operación **project.test.run** sí se discutió; el método de envoltura **action.request** se utiliza aquí solo para ilustrar la estructura.
+Ejemplo de **ActionRequest** para **project.test.run**. La envoltura **action.request** es una opción de diseño no normativa.
 
 ~~~json
 {
@@ -188,7 +188,7 @@ Ejemplo reconstruido de **ActionRequest**. La operación **project.test.run** s�
 
 ## 7. La acción crea una tarea
 
-**task.create** fue parte de la API estudiada para el Task Runtime (no necesariamente un método TUP normativo).
+**task.create** representa una operación candidata del Task Runtime; no necesariamente forma parte del protocolo TUP.
 
 ~~~json
 {
@@ -218,11 +218,11 @@ Ejemplo reconstruido de **ActionRequest**. La operación **project.test.run** s�
 }
 ~~~
 
-El estado **queued** es una elección ilustrativa; el contrato exacto de estados quedó pendiente.
+El estado **queued** es un ejemplo; el conjunto de estados y sus transiciones siguen sujetos a definición.
 
 ## 8. Suscripción a tareas
 
-En el estudio del Task Runtime aparecieron los métodos **task.get**, **task.list**, **task.cancel**, **task.subscribe** y **task.complete**, además de **task.create**. Aquí se da un ejemplo de **task.subscribe**:
+El modelo de Task Runtime contempla **task.create**, **task.get**, **task.list**, **task.cancel**, **task.subscribe** y **task.complete**. Ejemplo de **task.subscribe**:
 
 ~~~json
 {
@@ -253,7 +253,7 @@ Una suscripción necesita definir semántica de desconexión, duplicados, reinic
 }
 ~~~
 
-**task.progress** es un nombre históricamente discutido; **sequence**, **percent** y el resto de campos son decisiones de ejemplo, no una afirmación de esquema literal.
+**task.progress** publica una actualización de progreso. Los campos ilustran un posible esquema del evento.
 
 ## 10. Evento terminal task.completed
 
@@ -272,7 +272,7 @@ Una suscripción necesita definir semántica de desconexión, duplicados, reinic
 }
 ~~~
 
-Las discusiones identificaron estados finales como *completed*, *failed*, *denied*, *cancelled* e *interrupted*. El esquema del evento terminal y su persistencia no quedaron fijados aquí.
+El modelo contempla estados terminales como *completed*, *failed*, *denied*, *cancelled* e *interrupted*. El esquema del evento terminal y su persistencia no quedaron fijados aquí.
 
 ## 11. Cancelación
 
@@ -310,11 +310,11 @@ Una respuesta ilustrativa de la autoridad para una acción que no está permitid
 }
 ~~~
 
-El código de error **-32003** y los campos son **ilustrativos**. El punto histórico es que la acción propuesta por la IA **no** elude las políticas de **Ship**, y que una denegación puede producir evidencia de **Atlas**.
+El código de error **-32003** y los campos son ilustrativos. Una solicitud de la IA **no** puede eludir las políticas de **Ship**; las denegaciones relevantes deben generar evidencia en **Atlas**.
 
 ## 13. Un daemon sin interfaz gráfica
 
-La discusión sobre aplicaciones y servicios avanzó hacia representar también software sin ventanas. Ejemplo ilustrativo de un servicio de backups:
+El modelo también contempla aplicaciones y servicios sin ventanas. Ejemplo ilustrativo de un servicio de backups:
 
 ~~~json
 {
@@ -340,4 +340,4 @@ Este caso demuestra que el modelo semántico no necesita reemplazar señales, sy
 
 Para convertir estos ejemplos en un protocolo implementable hace falta definir tipos de datos, códigos de error, negociación de versiones, transporte y delimitación, identidad del emisor, scopes, autorización, garantías de orden y entrega, almacenamiento, recuperación, interoperabilidad y pruebas de conformidad.
 
-Por eso este archivo se conserva como **archivo de diseño** y no como **especificación TUP v0.1 publicada**.
+Estos ejemplos documentan el diseño preliminar y no constituyen una especificación TUP v0.1 normativa.
