@@ -1,6 +1,16 @@
-# SASP — Contrato mínimo experimental (draft)
+# SASP — Contrato auxiliar de proveedor (draft experimental)
 
 > **Estado: borrador exploratorio no normativo.** Los nombres de campos y las convenciones de este documento son candidatos destinados a probarse mediante prototipos. No existe todavía una versión estable de SASP, un transporte oficial, pruebas de conformidad aprobadas ni garantía de compatibilidad entre implementaciones.
+
+## Relación con MCP y el sistema operativo
+
+Este archivo describe **únicamente la dimensión Application & Service Contract** de SASP. **SASP abarca además Registry, Discovery, Connection, Lifecycle & Events y MCP Integration & Presentation**. La dirección arquitectónica adoptada se documenta en [DECISION-0002](../../DECISION-0002-integracion-mcp-en-so.md) y [SASP integrado al SO](../../docs/os-integration.md).
+
+Los **métodos publicados por el proveedor se descubren preferentemente con MCP `tools/list`**; sus invocaciones emplean `tools/call`. Los **snapshots** pueden publicarse como recursos MCP. Las definiciones duplicadas en este manifiesto de prueba son un recurso de investigación: **no deben convertirse en dos catálogos independientes con semántica contradictoria**. Un experimento deberá evaluar si basta referenciar herramientas/recursos del servidor MCP en lugar de repetir sus esquemas.
+
+El campo ilustrativo `sasp_version` de los archivos de ejemplo designa la **versión de este perfil de datos experimental**, **no** la versión de protocolo MCP ni un transporte SASP alternativo. Su nombre y necesidad siguen abiertos.
+
+**Registro y descubrimiento del SO** están fuera de estos JSON de proveedor. Se investigan mediante un catálogo local confiable y una interfaz Discovery por MCP; el manifiesto no autentica al paquete, al proceso ni al cliente.
 
 ## 1. Alcance
 
@@ -15,7 +25,7 @@ Los requisitos de estudio son:
 - Mantener el contexto de interacción **opcional**.
 - Evitar que la descripción del proveedor se confunda con una concesión de autoridad.
 
-Este borrador define **formas de datos candidatas**. No define handshake, discovery RPC, método de invocación, autenticación, sesiones ni semántica de entrega de eventos.
+Este borrador define **formas de datos candidatas** para transportar como recursos/metadata MCP. Los mecanismos de invocación, negociación y suscripciones existentes deben reutilizarse de MCP en la revisión aplicable. El registro local, la autenticación, las políticas, la supervisión y la resolución de instancias se investigan aparte.
 
 ## 2. Separación de tres tipos de información
 
@@ -142,7 +152,7 @@ Los manifiestos de ejemplo comparten la misma forma de datos. Las instantáneas 
 
 ## 9. Requisitos y decisiones todavía abiertos
 
-**No se ha elegido:** sintaxis de nombres y URIs, autoridad sobre la identidad de proveedor, origen y estabilidad de `instance_id`, negociación de versiones, mecanismo de discovery, contrato de transporte y seguridad, representación de errores, consistencia de estado, entregabilidad de eventos, suscripciones, cancelación, reintentos, idempotencia, extensión de UI o relación definitiva con MCP.
+**Abiertos:** convención de URIs y nombres; identidad verificada de proveedor/instancia; modelo de estado y eventos; mapeo de errores; compatibilidad MCP por revisión; decisión sobre redundancia de esquemas en el manifiesto; integración con Registry, Discovery y políticas del SO; extensiones de UI solo cuando MCP Apps resulte insuficiente.
 
 Este contrato experimental es una base para **formular pruebas y comparar alternativas**, no un estándar de wire format.
 
@@ -150,5 +160,7 @@ Este contrato experimental es una base para **formular pruebas y comparar altern
 
 - [Vocabulario](../../docs/concepts.md)
 - [Arquitectura](../../docs/architecture.md)
+- [Registro y descubrimiento](../../docs/registry-discovery.md)
+- [Dirección de integración MCP con el SO](../../docs/os-integration.md)
 - [SASP — descripción principal](../../README.md)
 - [MCP — especificación](https://modelcontextprotocol.io/specification)
