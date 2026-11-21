@@ -2,6 +2,8 @@
 
 > **Estado:** dirección arquitectónica y programa de investigación. No define una versión normativa de SASP ni afirma que exista una implementación completa.
 
+Antes de definir interfaces nuevas, SASP toma como base las capacidades disponibles de **MCP 2026-07-28** y estudia la integración con un sistema anfitrión. La [DECISION-0002](../DECISION-0002-integracion-mcp-en-so.md) establece esta orientación.
+
 ## 1. Identidad y objetivo
 
 **SASP — Semantic Application & Service Protocol** investiga cómo integrar aplicaciones y servicios de un sistema operativo con los mecanismos de **Model Context Protocol (MCP)** y, cuando aporten valor, **MCP Apps**.
@@ -69,6 +71,8 @@ El SO **no debe confiar automáticamente** en un `provider.id` o en un PID escri
 Un proveedor instalado puede estar inactivo; un endpoint desconectado puede pertenecer a un proceso aún vivo. No se debe confundir esos estados.
 
 **No es MCP Registry:** el catálogo público puede contribuir información de instalación, pero no sustituye el registro local confiable del host.
+
+Las reglas de verificación, reconciliación, identidades y casos de prueba se desarrollan en [Registry y Discovery](registry-discovery.md).
 
 **Reutilización a investigar:** el [formato `server.json` del MCP Registry](https://github.com/modelcontextprotocol/registry/blob/main/docs/reference/server-json/generic-server-json.md) ya define metadatos de distribución y configuración de servidores. El catálogo de instalaciones SASP **debería evaluar su reutilización** antes de crear otro manifiesto de paquetes. La información del **runtime local** (instancia, estado del proceso, identidad autenticada y endpoint disponible) sigue necesitando mecanismos del SO, aunque se utilicen componentes de un registro compatible.
 
@@ -240,4 +244,4 @@ Ver [plan de seis experimentos de integración con el SO](../experiments/os-inte
 - [MCP Tasks](https://github.com/modelcontextprotocol/ext-tasks/blob/main/specification/2026-07-28/tasks.md)
 - [MCP Apps](https://github.com/modelcontextprotocol/ext-apps/blob/main/specification/2026-01-26/apps.mdx)
 - [MCP Registry](https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/about.mdx)
-- [Arquitectura SASP](architecture.md) y [contrato experimental](../specification/draft/overview.md)
+- [Arquitectura SASP](architecture.md), [Registry y Discovery](registry-discovery.md) y [contrato auxiliar experimental](../specification/draft/overview.md)
