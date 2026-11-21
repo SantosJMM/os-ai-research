@@ -1,6 +1,6 @@
 # Unidad 11 — Agentes y sistemas operativos
 
-[Issue #12](https://github.com/SantosJMM/os-research/issues/12)
+[Issue #12](https://github.com/SantosJMM/os-ai-research/issues/12)
 
 ## Temas
 - Identidad y autoridad de agentes.
@@ -18,4 +18,4 @@ Un agente simulado envía peticiones a un ejecutor independiente; el ejecutor ev
 ¿Qué protección debe proporcionar la CPU, el kernel, un servicio privilegiado y el runtime del agente? Evitar atribuir al modelo garantías que requieren aislamiento real.
 
 ## Relación con Thanos OS
-Tomar Station, Ship, Capsuleer y TUP como casos comparativos, no como respuestas predefinidas.
+Tomar Station, Ship, Capsuleer y SASP (antes TUP) como casos comparativos, no como respuestas predefinidas.
