@@ -4,6 +4,8 @@
 > **Referencia de comparación:** Model Context Protocol, revisión **2026-07-28**, y extensión **MCP Apps 2026-01-26**.  
 > **Casos de estudio:** [Music Player](../examples/music-player/manifest.json) y [Backup Daemon](../examples/backup-daemon/manifest.json).
 
+**Alcance de este análisis:** la matriz compara el **contrato de proveedor**, solo uno de los seis ejes de SASP. La [DECISION-0002](../DECISION-0002-integracion-mcp-en-so.md) sitúa el objetivo principal en el registro, descubrimiento, conexión y ciclo de vida del software en el sistema operativo. Para esos mecanismos, véase [Integración MCP con el SO](os-integration.md).
+
 ## 1. Pregunta de investigación
 
 **¿Qué parte del contrato semántico de aplicaciones y servicios propuesto por SASP puede expresarse directamente en MCP, y qué convenciones adicionales, si las hubiera, justifican una especificación independiente?**
