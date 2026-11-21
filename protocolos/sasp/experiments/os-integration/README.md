@@ -50,6 +50,9 @@ Estos seis ejes pueden desarrollarse en paralelo donde no haya dependencias, per
 
 ## OS-03 — Servicio Discovery expuesto por MCP
 
+La [interfaz candidata de Discovery como servidor MCP](discovery-mcp.md) incluye ejemplos de `tools/list`, `tools/call`, resultados estructurados y pruebas de registro y resolución de instancias.
+
+
 - Publicar un **servidor MCP de descubrimiento del SO** sobre el registro local de OS-02.
 - Exponer herramientas de búsqueda/obtención de instancias y recursos de catálogo usando MCP.
 - Hacer consultas por capacidad, no solo por nombre.
