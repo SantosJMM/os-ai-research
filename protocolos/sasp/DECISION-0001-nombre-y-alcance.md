@@ -4,6 +4,7 @@
 - **Estado de esta decisión:** Adoptada en OS AI Research
 - **Estado del protocolo:** Propuesta de investigación (borrador; sin versión normativa)
 - **Anteriormente:** Thanos UI Protocol (TUP)
+- **Evolución de alcance:** [DECISION-0002 — integración de MCP con el sistema operativo](DECISION-0002-integracion-mcp-en-so.md)
 
 ## Contexto
 
