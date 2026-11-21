@@ -8,11 +8,17 @@
 
 ## 1. Propósito y alcance
 
-**SASP — Semantic Application & Service Protocol** estudia un contrato para que **aplicaciones y servicios** publiquen una representación estructurada de su identidad, estado, capacidades, métodos, eventos y contexto de interacción. Los consumidores pueden ser agentes de IA, interfaces humanas u otros programas.
+**SASP — Semantic Application & Service Protocol** estudia **cómo integrar aplicaciones y servicios en un sistema operativo reutilizando MCP y MCP Apps**. El contrato de identidad, estado, capacidades, métodos, eventos y contexto de interacción es solo una parte: también se investigan el registro de instalaciones e instancias, el descubrimiento, la conexión, la disponibilidad y la recuperación. Los consumidores pueden ser agentes de IA, interfaces humanas u otros programas.
 
 El contrato debe poder aplicarse a una aplicación gráfica, un servicio sin interfaz, un worker o un daemon. No exige que la aplicación esté visible, que implemente un toolkit concreto, que use Thanos OS ni que se comunique por un transporte particular.
 
 La cuestión principal de arquitectura es **cómo separar lo que el software significa y permite hacer de los mecanismos usados para encontrarlo, representarlo y ejecutar operaciones**.
+
+### Alcance de los servicios de integración
+
+La dirección actual se desarrolla en **[SASP: integración MCP con el sistema operativo](os-integration.md)**. Distingue **Registry** (catálogo instalado y directorio de instancias), **Discovery** (consulta por identidad/capacidad como servicio MCP candidato), **Connection** (stdio, socket Unix, HTTP o mediación), **Lifecycle & Events** (supervisión, recursos y suscripciones) y **Presentation** (MCP Apps opcional o GUI nativa).
+
+Los componentes son **responsabilidades lógicas**; no se exige implementar cada uno en un daemon separado. El actual prototipo MCP en Rust cubre solo herramientas y recursos, no el registro ni el descubrimiento local.
 
 ## 2. Modelo conceptual
 
