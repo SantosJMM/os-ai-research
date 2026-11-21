@@ -1,6 +1,6 @@
 # Unidad 00 — Arquitectura de computadores
 
-**Seguimiento:** [Issue #10](https://github.com/SantosJMM/os-research/issues/10)
+**Seguimiento:** [Issue #10](https://github.com/SantosJMM/os-ai-research/issues/10)
 
 ## Propósito
 
