@@ -39,6 +39,8 @@ Estos seis ejes pueden desarrollarse en paralelo donde no haya dependencias, per
 
 **Criterio:** el contrato semántico se transmite íntegro por MCP sin inventar mensajes de transporte SASP.
 
+La [instantánea sintética del Registry](../../examples/os-integration/registry.snapshot.json) ilustra instalaciones y una instancia activa; el [resultado de Discovery](../../examples/os-integration/discovery.search.result.json) permite comprobar la salida de una búsqueda por capacidad.
+
 ## OS-02 — Registro local (instalado vs activo)
 
 Validar el mismo modelo publicado en [Registry y Discovery](../../docs/registry-discovery.md). El registro local puede aprovechar metadatos `server.json` del MCP Registry para instalación, pero no debe tomarlos como prueba de identidad runtime.
