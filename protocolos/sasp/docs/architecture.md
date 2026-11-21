@@ -2,6 +2,10 @@
 
 > **Estado:** propuesta arquitectónica para investigación. Este documento describe componentes, responsabilidades y flujos candidatos; **no es una especificación normativa**, ni establece un formato de mensajes definitivo.
 
+## Principio rector: contrato declarado por el proveedor
+
+**La aplicación o servicio declara las capacidades; el agente las descubre y puede solicitar operaciones, pero no las inventa ni obtiene permisos por conocerlas.** El modelo propuesto abarca **estado, métodos, eventos y contexto opcional de interfaz**, además de la identidad del proveedor y su instancia. Este principio se desarrolla en el [ejemplo de referencia Thanos Music](../../tup/archivo/05-contrato-semantico-thanos-music.md).
+
 ## 1. Propósito y alcance
 
 **SASP — Semantic Application & Service Protocol** estudia un contrato para que **aplicaciones y servicios** publiquen una representación estructurada de su identidad, estado, capacidades, métodos, eventos y contexto de interacción. Los consumidores pueden ser agentes de IA, interfaces humanas u otros programas.
