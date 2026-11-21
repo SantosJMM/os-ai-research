@@ -13,6 +13,8 @@ El experimento base utiliza dos proveedores sintéticos existentes:
 
 **No conectar los ensayos a servicios de producción ni abrir acceso a recursos del anfitrión no requeridos.** Cada experimento debe anotar versión de MCP, implementación, sistema, comandos, resultados, fallos y mediciones.
 
+**Prioridad:** validar el servidor MCP básico en **OS-01** y pasar a **OS-02 (Registry local)** y **OS-03 (Discovery expuesto por MCP)** antes de fijar topología de broker o extensiones de eventos. El [modelo de registro/descubrimiento](../../docs/registry-discovery.md) especifica las fuentes de verdad y casos negativos que deben ensayarse.
+
 ## Matriz de seis experimentos
 
 | ID | Eje SASP | Hipótesis verificable | Prueba | Evidencia mínima |
@@ -39,6 +41,8 @@ Estos seis ejes pueden desarrollarse en paralelo donde no haya dependencias, per
 
 ## OS-02 — Registro local (instalado vs activo)
 
+Validar el mismo modelo publicado en [Registry y Discovery](../../docs/registry-discovery.md). El registro local puede aprovechar metadatos `server.json` del MCP Registry para instalación, pero no debe tomarlos como prueba de identidad runtime.
+
 - Crear un registro experimental en un proceso **sin root** con dos conjuntos: catálogo de paquetes y directorio de instancias.
 - Registrar un proveedor instalado sin proceso ejecutándose.
 - Iniciar una instancia local y publicar un endpoint asociado a un proceso comprobado.
@@ -49,6 +53,8 @@ Estos seis ejes pueden desarrollarse en paralelo donde no haya dependencias, per
 **Criterio:** ninguna identidad autodeclarada por JSON basta para hacerse pasar por una instancia confiable.
 
 ## OS-03 — Servicio Discovery expuesto por MCP
+
+**Discovery no debe reemplazar `server/discover`**: publica herramientas MCP normales para localizar proveedores del SO; `server/discover` describe las capacidades de ese servidor MCP una vez localizado.
 
 La [interfaz candidata de Discovery como servidor MCP](discovery-mcp.md) incluye ejemplos de `tools/list`, `tools/call`, resultados estructurados y pruebas de registro y resolución de instancias.
 
