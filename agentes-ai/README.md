@@ -1,6 +1,6 @@
 # Agentes de IA y sistemas operativos
 
-Esta línea de OS Research estudia **agentes de IA como software que interactúa con sistemas operativos**, no únicamente modelos de lenguaje.
+Esta línea de OS AI Research estudia **agentes de IA como software que interactúa con sistemas operativos**, no únicamente modelos de lenguaje.
 
 ## Objetivos
 - Entender modelos, inferencia, herramientas, bucles de agente y runtimes.
