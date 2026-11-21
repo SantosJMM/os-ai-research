@@ -1,6 +1,6 @@
-# TUP histórico — Acciones, seguridad y Task Runtime
+# TUP — Acciones, seguridad y Task Runtime
 
-> **Reconstrucción de las conversaciones de 27–28 de octubre de 2026.** No es transcripción literal ni una decisión técnica oficial posterior. Los nombres de tipos y acciones anotados aquí se recuperaron del historial contextual; los detalles que no se pudieron comprobar quedan marcados como propuestas.
+> **Estado:** propuesta técnica de diseño. Los tipos Rust, las API y los flujos mostrados son orientativos y no constituyen interfaces normativas.
 
 ## 1. La pregunta arquitectónica de fondo
 
@@ -32,7 +32,7 @@ Es un flujo conceptual; una aplicación puede ejecutar una operación local no p
 
 ## 2. Tipos Rust discutidos
 
-En las propuestas aparecieron explícitamente los nombres:
+Tipos considerados en la arquitectura:
 
 - **Task**, **TaskState**: identidad y estado de un trabajo.
 - **UiNode**, **View**: estructura declarativa de interfaz.
@@ -42,10 +42,10 @@ En las propuestas aparecieron explícitamente los nombres:
 - **ActionStatus**: resultado o estado de la solicitud.
 - **ApprovalScope**: alcance de una aprobación.
 
-La forma exacta de las declaraciones Rust originales **no está disponible en este archivo**. El siguiente código sirve como reconstrucción orientativa, no como cita textual ni API publicada:
+El siguiente código Rust ilustra los tipos de dominio propuestos; no constituye una API pública estable:
 
 ~~~rust
-// ILUSTRATIVO, NO COPIA LITERAL DE LA CONVERSACION
+// EJEMPLO DE DISENO - API NO NORMATIVA
 struct Task {
     id: String,
     kind: String,
@@ -96,11 +96,11 @@ Solicitud **project.test.run**. La operación puede necesitar aprobación según
 
 El Task Runtime registra el progreso y la terminación de la tarea. TUP puede transmitir las actualizaciones semánticas a la vista y a Capsuleer. Atlas almacena la evidencia de las operaciones auditables.
 
-La conversación discutió **aprobación con alcance (ApprovalScope)** en vez de interpretar una aprobación como permiso global o permanente.
+El modelo contempla **aprobaciones con alcance (ApprovalScope)**, sin interpretar cada aprobación como permiso global o permanente.
 
 ## 4. Verificación de identidad y validación
 
-La propuesta v0.2 reforzó estos aspectos:
+El diseño de validación contempla estos aspectos:
 
 - Tomar identidad real del cliente desde credenciales del socket o de una sesión autenticada, no de un campo arbitrario del JSON.
 - Comprobar que la acción esté registrada y sus parámetros cumplan su esquema.
@@ -112,7 +112,7 @@ Ninguno de estos controles puede resolverse solo con una descripción textual pa
 
 ## 5. Task Runtime como servicio separado
 
-En una conversación posterior se propuso un **Task Runtime en Rust, sin root**, con responsabilidades propias:
+Se propone un **Task Runtime en Rust, sin root**, con responsabilidades propias:
 
 - Crear, consultar y listar tareas.
 - Administrar estados y transiciones de trabajo.
@@ -122,7 +122,7 @@ En una conversación posterior se propuso un **Task Runtime en Rust, sin root**,
 - Entregar progreso y eventos a clientes suscritos.
 - Distinguir un trabajo cancelado de uno que falló, fue denegado o quedó interrumpido.
 
-API discutida para investigación:
+API candidata:
 
 | Método | Intención |
 | --- | --- |
@@ -133,7 +133,7 @@ API discutida para investigación:
 | **task.subscribe** | Observar actualizaciones |
 | **task.complete** | Registrar finalización desde un ejecutor autorizado |
 
-**Advertencia:** que estos nombres aparezcan en la propuesta no implica que el acceso a **task.complete** fuese seguro desde cualquier cliente. Las transiciones deben estar controladas por identidad y por la propiedad de la tarea.
+**task.complete** debe estar restringido a ejecutores autorizados. Las transiciones requieren verificación de identidad y pertenencia de la tarea.
 
 ### TUP no es un scheduler de procesos
 
@@ -141,18 +141,18 @@ TUP se propuso como lenguaje semántico entre aplicaciones, clientes y el Shell.
 
 ## 6. Ciclo de vida y recuperación
 
-Se plantearon estados terminales **completed**, **failed**, **denied**, **cancelled**, **interrupted**. También se discutió que:
+Se consideran estados terminales **completed**, **failed**, **denied**, **cancelled**, **interrupted**. También se discutió que:
 - Una desconexión de cliente no debe hacer que toda tarea desaparezca, si la tarea fue diseñada para persistir.
 - Una tarea reiniciada o interrumpida debe conservar evidencia del estado anterior.
 - Eventos perdidos, duplicados o retrasados requieren revisión/secuencia y una política explícita.
 - Los consumidores necesitan poder volver a obtener una instantánea coherente.
 - La cancelación puede ser cooperativa y no equivale a revertir automáticamente efectos ya aplicados.
 
-**No estaba cerrado** si el registro TUP sería persistente, cómo se garantizaría entrega de eventos ni cómo se implementarían reintentos transaccionales.
+Quedan por definir la persistencia del registro TUP, las garantías de entrega de eventos y la semántica de los reintentos transaccionales.
 
 ## 7. Daemons, procesos y mecanismos existentes
 
-La evolución del planteamiento incluyó aplicaciones gráficas y **servicios en segundo plano**. Un daemon puede exponer estado, métodos y eventos sin nueva ventana ni UI obligatoria.
+El alcance incluye aplicaciones gráficas y **servicios en segundo plano**. Un daemon puede exponer estado, métodos y eventos sin nueva ventana ni UI obligatoria.
 
 TUP **no reemplaza**:
 - Las señales de Linux como SIGTERM o SIGKILL.
@@ -165,11 +165,11 @@ La utilidad buscada era ofrecer a la IA **comprensión semántica e interacción
 
 ## 8. Decisiones abiertas y transición posterior
 
-Algunas preguntas que la investigación debía resolver:
+Decisiones técnicas abiertas:
 1. ¿Endpoint TUP directo o registro/broker?
 2. ¿Qué campos, métodos y errores son obligatorios?
 3. ¿Qué modelos de consistencia y suscripción pueden prometerse?
 4. ¿Cuál es la relación exacta de TUP con Task Runtime y Thanos Shell?
 5. ¿Qué capacidades deberían integrarse con MCP y MCP Apps en lugar de duplicarse?
 
-La investigación posterior pasó a llamarse **[SASP — Semantic Application & Service Protocol](../../sasp/README.md)**. La etapa TUP sigue siendo importante como registro del pensamiento original de Thanos OS, pero no debe presentarse retroactivamente como una implementación terminada.
+Esta línea de investigación pasó a denominarse **[SASP — Semantic Application & Service Protocol](../../sasp/README.md)**. Los contratos TUP aquí descritos son propuestas de diseño, no garantías de una implementación terminada.
