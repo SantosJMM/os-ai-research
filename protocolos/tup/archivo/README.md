@@ -11,6 +11,7 @@ El archivo reúne los principales conceptos de diseño de TUP: entidades, contra
 - [02 — Ejemplos JSON y JSON-RPC](02-ejemplos-json.md) — manifiestos, eventos, solicitudes y respuestas.
 - [03 — Acciones, permisos y Task Runtime](03-acciones-y-runtime.md) — ejecución, autorizaciones, cancelación y recuperación.
 - [04 — De TUP a SASP: origen, hallazgos y evolución](04-origen-hallazgos-evolucion.md) — motivación inicial, contraste con MCP/MCP Apps, cambios de alcance y preguntas pendientes.
+- [05 — Contrato semántico Thanos Music](05-contrato-semantico-thanos-music.md) — mensajes MCP y manifiestos TUP v0.1 de reproductor y daemon, estado, métodos, eventos y contexto de UI.
 
 ## Estado de diseño
 
