@@ -98,6 +98,7 @@ En **Thanos OS**, la integración podrá utilizar **Station** (supervisión), **
 
 - **[Plan OS-01 a OS-06](experiments/os-integration/README.md):** investigaciones de los seis ejes con evidencia y criterios de aceptación.
 - **[Discovery como servicio MCP](experiments/os-integration/discovery-mcp.md):** herramientas candidatas de búsqueda y resolución.
+- **[Ejemplos Registry y Discovery](examples/os-integration/README.md):** catálogo local e instancia activa frente a resultado de búsqueda autorizado.
 - [Servidor de ejemplo MCP en Rust](experiments/mcp-rust-stdio/README.md): **línea base Tools/Resources**, todavía sin validación ejecutable ni Registry/Discovery.
 
 ### Antecedentes
