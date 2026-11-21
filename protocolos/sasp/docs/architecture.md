@@ -218,6 +218,11 @@ La primera validación recomendada es una **aplicación de música simulada** y 
 
 ## 11. Documentos relacionados
 
+- [Conceptos y vocabulario SASP](concepts.md)
+- [Contrato mínimo experimental — draft](../specification/draft/overview.md)
+- [Ejemplo: manifiesto de Music Player](../examples/music-player/manifest.json) y [su estado](../examples/music-player/state.snapshot.json)
+- [Ejemplo: manifiesto de Backup Daemon](../examples/backup-daemon/manifest.json) y [su estado](../examples/backup-daemon/state.snapshot.json)
+
 - [SASP — descripción y principios](../README.md)
 - [Decisión sobre nombre y alcance](../DECISION-0001-nombre-y-alcance.md)
 - [Antecedentes de TUP y evolución a SASP](../../tup/archivo/04-origen-hallazgos-evolucion.md)
