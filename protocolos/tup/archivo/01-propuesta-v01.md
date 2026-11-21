@@ -1,8 +1,6 @@
-# TUP v0.1 — Reconstrucción de la propuesta histórica
+# TUP v0.1 — Propuesta de arquitectura
 
-> **Tipo de documento:** reconstrucción histórica, no transcripción literal.  
-> **Conversaciones de referencia:** 27 y 28 de octubre de 2026.  
-> **Estado:** propuestas de diseño; no se afirma que estén implementadas ni aprobadas como estándar.
+> **Estado:** diseño preliminar y ejemplos no normativos. Las interfaces y garantías del protocolo requieren especificación y validación.
 
 ## 1. Visión original
 
@@ -58,7 +56,7 @@ Dimensiones discutidas:
 - Persistencia y recuperación en caso de reinicio o caída.
 - Distinción entre intención solicitada, aceptación del trabajo, ejecución y resultado.
 
-**Estados mencionados en nuestras conversaciones:** *completed*, *failed*, *denied*, *cancelled*, *interrupted*. Otros estados intermedios (p. ej. *queued* o *running*) aparecían como parte del diseño general; **no se conserva aquí como definitivo un enumerado exacto**.
+**Estados terminales considerados:** *completed*, *failed*, *denied*, *cancelled*, *interrupted*. Los estados intermedios, como *queued* o *running*, y sus transiciones deben definirse formalmente.
 
 El Task Runtime se planteó después como servicio Rust **sin root**, dedicado a administrar el ciclo de vida de tareas. TUP podía transportar eventos de las tareas, pero **no debía absorber toda la lógica de ejecución**.
 
@@ -66,14 +64,14 @@ El Task Runtime se planteó después como servicio Rust **sin root**, dedicado a
 
 La entidad *View* se concibió como una representación estructurada para humanos y clientes semánticos, no como un fragmento arbitrario de código que el agente ejecuta.
 
-El concepto histórico **UiNode** representaba nodos de una vista. Entre los objetivos:
+El tipo conceptual **UiNode** representaba nodos de una vista. Entre los objetivos:
 - Estructura y contenido reconocible por el agente.
 - Identificadores estables para asociar controles con acciones registradas.
 - Revisión o versión de vista para detectar acciones basadas en estados obsoletos.
 - Datos de presentación desacoplados de la autorización y de la lógica del negocio.
 - Renderizado económico a partir de información estructurada y no de capturas recurrentes.
 
-**Pregunta abierta histórica:** qué variedad de nodos admite una View, dónde viven sus esquemas de validación y cómo se concilia una interfaz declarativa con aplicaciones GUI tradicionales.
+**Pregunta de diseño abierta:** qué variedad de nodos admite una View, dónde viven sus esquemas de validación y cómo se concilia una interfaz declarativa con aplicaciones GUI tradicionales.
 
 ## 5. App — Manifiesto y acciones
 
@@ -97,7 +95,7 @@ Son **conjuntos de estados distintos**, no una correspondencia de filas obligato
 
 ## 6. Transporte temprano
 
-Las conversaciones iniciales propusieron **JSON-RPC 2.0 sobre sockets Unix**, con **encuadre de longitud** para delimitar mensajes. Se discutían eventos asíncronos, respuestas a solicitudes y sesiones.
+El diseño inicial consideró **JSON-RPC 2.0 sobre sockets Unix**, con **encuadre de longitud** para delimitar mensajes. Se discutían eventos asíncronos, respuestas a solicitudes y sesiones.
 
 La elección de transporte **no estaba cerrada**: también quedó pendiente evaluar si cada aplicación publicaría su socket directamente o se registraría a través de un *broker/registry*.
 
@@ -105,7 +103,7 @@ El protocolo semántico no debía depender de una única estrategia de transport
 
 ## 7. Eventos conocidos de la propuesta
 
-Los nombres que sí se identifican de las conversaciones anteriores incluyen:
+Entre los eventos propuestos se incluyen:
 
 - **task.progress** — progreso de una tarea.
 - **task.completed** — finalización de una tarea.
@@ -113,11 +111,11 @@ Los nombres que sí se identifican de las conversaciones anteriores incluyen:
 
 También se discutieron snapshots, revisiones, suscripciones, identificación de instancias y mecanismos para recuperar el estado después de desconectarse.
 
-**No se atribuye a estos nombres un esquema JSON definitivo**. Las formas que aparecen en el anexo de ejemplos son propuestas de reconstrucción para estudio.
+Los esquemas de estos eventos están pendientes de definición formal; los mensajes incluidos en el anexo son ejemplos no normativos.
 
 ## 8. Un caso de uso trabajado
 
-El flujo histórico fue: «abrir un proyecto → explorar → ejecutar pruebas».
+Un caso de uso es: «abrir un proyecto → explorar → ejecutar pruebas».
 
 1. Una persona o cliente solicita abrir un proyecto.
 2. La intención se representa con una acción tipada, por ejemplo **project.open**.
@@ -129,11 +127,11 @@ El flujo histórico fue: «abrir un proyecto → explorar → ejecutar pruebas»
 8. El trabajo publica progreso, resultado y evidencias; **Atlas** audita operaciones relevantes.
 9. El Shell y el agente pueden consultar o visualizar el mismo estado.
 
-Se mencionaron tipos conceptuales **ActionRequest**, **ProjectAction** con variantes **Open / Explore / RunTests**, **ActionStatus**, y **ApprovalScope**. Sus campos exactos requieren consultar la transcripción literal para archivarlos palabra por palabra.
+El modelo contempla tipos conceptuales **ActionRequest**, **ProjectAction** con variantes **Open / Explore / RunTests**, **ActionStatus**, y **ApprovalScope**. La estructura de sus campos y las reglas de validación requieren una definición normativa.
 
 ## 9. Distinción entre propuesta e implementación
 
-En la investigación histórica se bosquejaron tipos Rust como **Task**, **TaskState**, **UiNode**, **View** y **AppManifest**. La existencia de esos nombres en el diseño **no acredita una implementación funcional de TUP**.
+En el diseño se contemplan tipos Rust como **Task**, **TaskState**, **UiNode**, **View** y **AppManifest**. Estos nombres representan conceptos de la arquitectura, no una API de implementación estable.
 
 Para mensajes completos con JSON de ejemplo, véase [02 — Ejemplos JSON](02-ejemplos-json.md). Para permisos y ejecución, véase [03 — Acciones y Runtime](03-acciones-y-runtime.md).
 
@@ -146,4 +144,4 @@ Para mensajes completos con JSON de ejemplo, véase [02 — Ejemplos JSON](02-ej
 - Garantías de entrega, duplicación y recuperación de eventos.
 - Relación entre acciones semánticas y mecanismos de seguridad efectivos.
 
-Estas decisiones se preservan como **preguntas**, no como características ya resueltas.
+Estos puntos permanecen abiertos y no deben tratarse como garantías implementadas.
