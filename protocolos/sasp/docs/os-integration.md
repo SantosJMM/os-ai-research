@@ -90,7 +90,7 @@ El servicio de descubrimiento podría presentarse **como servidor MCP del sistem
 
 Los nombres de operaciones como `applications.search` o `applications.resolve` son **ejemplos de API de investigación**, no nuevas llamadas obligatorias de MCP.
 
-**Decisión importante:** el resultado de descubrimiento puede ser un handle opaco o una ruta mediada, no necesariamente la dirección física de un socket a la que Capsuleer pueda conectarse sin controles.
+**Decisión importante:** el resultado de descubrimiento puede ser un handle opaco o una ruta mediada, no necesariamente la dirección física de un socket a la que un agente pueda conectarse sin controles.
 
 ### Eje 4 — SASP Connection
 
@@ -166,7 +166,7 @@ Se deben probar pérdidas, duplicados, reconexiones y cambios de instancia sin p
           búsqueda por capacidad
                     v
         +-----------------------+
-        | SASP Discovery        |<-- Capsuleer / Shell
+        | SASP Discovery        |<-- Agente / Shell
         | (interfaz MCP posible)|
         +-----------------------+
                     |
@@ -208,9 +208,9 @@ En Thanos OS, una implementación candidata sería:
 - **Station:** supervisión y ciclo de vida real del proceso/servicio.
 - **SASP Registry:** catálogo de instalaciones e instancias, abastecido por mecanismos confiables del SO.
 - **SASP Discovery:** interfaz de consulta, potencialmente un servidor MCP del propio SO.
-- **Capsuleer:** cliente restringido que descubre capacidades y solicita operaciones.
+- **Agente:** cliente restringido que descubre capacidades y solicita operaciones.
 - **Thanos Shell:** cliente humano de estado y acciones; puede renderizar MCP Apps o UI nativa según el caso.
-- **Ship:** autoridad de políticas para operaciones protegidas y mediación según perfil; Capsuleer no obtiene acceso root ni rutas de bypass.
+- **Ship:** autoridad de políticas para operaciones protegidas y mediación según perfil; el agente no obtiene acceso root ni rutas de bypass.
 - **Atlas:** auditoría de operaciones y eventos relevantes.
 
 Es una asignación **candidata**, no una implementación ya aprobada del núcleo de Thanos OS. Un SO distinto puede aportar otros supervisores y políticas sin cambiar el objetivo de SASP.
