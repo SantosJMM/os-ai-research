@@ -9,7 +9,7 @@ Un agente o una interfaz humana necesita descubrir **aplicaciones instaladas o i
 La propuesta usa un **servidor MCP del SO** que consulta un **registro local verificado**. `server/discover` sirve para conocer las capacidades de ese servidor MCP ya localizado; `applications.search` consulta el catálogo del SO.
 
 ```text
-Agente / Shell (MCP Client)
+Agente / Presentador (MCP Client)
             |
       tools/list y tools/call
             |
