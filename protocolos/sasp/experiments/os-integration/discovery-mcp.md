@@ -9,7 +9,7 @@ Un agente o una interfaz humana necesita descubrir **aplicaciones instaladas o i
 La propuesta usa un **servidor MCP del SO** que consulta un **registro local verificado**. `server/discover` sirve para conocer las capacidades de ese servidor MCP ya localizado; `applications.search` consulta el catálogo del SO.
 
 ```text
-Capsuleer / Shell (MCP Client)
+Agente / Shell (MCP Client)
             |
       tools/list y tools/call
             |
@@ -110,7 +110,7 @@ Respuesta ilustrativa con un resultado tipado:
 }
 ```
 
-`target_ref` es un **handle de referencia**, no una prueba de autorización ni un token con privilegios implícitos. La operación que lo utilice debe comprobar nuevamente identidad y permisos. No es necesario que Capsuleer conozca el PID ni la ruta física del socket.
+`target_ref` es un **handle de referencia**, no una prueba de autorización ni un token con privilegios implícitos. La operación que lo utilice debe comprobar nuevamente identidad y permisos. No es necesario que el agente conozca el PID ni la ruta física del socket.
 
 ## Herramienta candidata: resolver una referencia
 
