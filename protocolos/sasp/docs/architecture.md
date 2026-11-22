@@ -39,7 +39,7 @@ Los componentes son **responsabilidades lógicas**; no se exige implementar cada
                      |
      +---------------+----------------+
      |                                |
-Capsuleer / agente                Shell / GUI
+Agente                Shell / GUI
      |                                |
      +---------- MCP Client ----------+
                      |
@@ -196,7 +196,7 @@ La regla principal es **«capacidad anunciada» no equivale a «capacidad autori
 
 ### Ejemplo de integración en Thanos OS
 
-En un despliegue hipotético, **Capsuleer** consumiría contratos SASP mediante una ruta permitida y solicitaría operaciones; **Thanos Shell** presentaría información a personas; **Ship** conservaría la aplicación de políticas para operaciones protegidas y **Atlas** registraría evidencia relevante. **Station** seguiría supervisando servicios y procesos. Ninguno de esos componentes es requisito para otras implementaciones de SASP.
+En un despliegue hipotético, **el agente** consumiría contratos SASP mediante una ruta permitida y solicitaría operaciones; **Thanos Shell** presentaría información a personas; **Ship** conservaría la aplicación de políticas para operaciones protegidas y **Atlas** registraría evidencia relevante. **Station** seguiría supervisando servicios y procesos. Ninguno de esos componentes es requisito para otras implementaciones de SASP.
 
 ## 8. Transporte e interoperabilidad
 
