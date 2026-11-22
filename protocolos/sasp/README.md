@@ -25,7 +25,7 @@ Las decisiones de alcance están en [DECISION-0001 (nombre)](DECISION-0001-nombr
 | Notificaciones | MCP `subscriptions/listen` y recursos actualizados | Comprobar si bastan para eventos de dominio, recuperación e historial |
 | Descubrimiento de un endpoint | MCP `server/discover` | Encontrar primero **qué aplicaciones y servidores existen en el host** |
 | Publicación de servidores | MCP Registry y `server.json` | Mantener catálogo **local** y directorio **vivo** de instancias verificadas |
-| Interfaz humana | MCP Apps y UI propia de cada aplicación | Integrar UI semántica, Shell y GUI nativa sin obligar a usar HTML |
+| Interfaz humana | MCP Apps y UI propia de cada aplicación | Integrar al **Presentador**, la UI semántica y la GUI nativa sin obligar a usar HTML |
 | Trabajo asíncrono | Extensión MCP Tasks | Integración con procesos y tareas del SO; evitar duplicar un Task Runtime |
 | Conexión y políticas | Transportes MCP y seguridad del SO | Elegir rutas autorizadas; comparar `stdio`, Unix, HTTP y mediación |
 
@@ -47,7 +47,7 @@ Las decisiones de alcance están en [DECISION-0001 (nombre)](DECISION-0001-nombr
                            |
               +------------+-------------+
               |                          |
-       Agente                       Persona / Shell
+       Agente                     Presentador / UI
               |                          |
               +------- SASP Connection --+
                         |  MCP
@@ -64,7 +64,7 @@ Las decisiones de alcance están en [DECISION-0001 (nombre)](DECISION-0001-nombr
 
 El diagrama representa **roles lógicos** y no exige implementar un daemon independiente para cada uno. Los proveedores conservan sus APIs, procesos y mecanismos de seguridad nativos.
 
-En **Thanos OS**, la integración podrá utilizar **Station** (supervisión), **Ship** (políticas y ejecución protegida), **Atlas** (auditoría), **Agente** (cliente aislado) y **Thanos Shell** (presentación). Ninguno de estos nombres es requisito para otras plataformas.
+Los nombres generales para estas responsabilidades son **Supervisor**, **Autoridad de seguridad**, **Ejecutor privilegiado**, **Subsistema de auditoría**, **Agente** y **Presentador**. En **Thanos OS**, su implementación de referencia incluye **Station**, **Ship**, **Atlas**, el componente de agente **Capsuleer** y **Thanos Shell**, respectivamente. Estas correspondencias no son necesariamente uno a uno ni obligatorias para otras plataformas. Véase [Terminología](docs/terminologia.md).
 
 ## Los seis ejes de SASP
 
@@ -83,6 +83,7 @@ En **Thanos OS**, la integración podrá utilizar **Station** (supervisión), **
 
 - **[SASP integrado con MCP en el SO](docs/os-integration.md):** misión, seis ejes y modelo operativo de instalación, registro, descubrimiento, conexión y ciclo de vida.
 - **[Arquitectura](docs/architecture.md):** componentes, relaciones y fronteras de confianza.
+- **[Terminología de SASP](docs/terminologia.md):** nombres genéricos de roles, diferencias con MCP y correspondencias de Thanos OS.
 - **[Registro y descubrimiento locales](docs/registry-discovery.md):** fuentes de identidad y datos, separación entre proveedor instalado e instancia en ejecución, reconciliación y consulta autorizada.
 - [Conceptos y vocabulario](docs/concepts.md).
 - [Decisión de alcance MCP-first](DECISION-0002-integracion-mcp-en-so.md).
