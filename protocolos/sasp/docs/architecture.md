@@ -39,7 +39,7 @@ Los componentes son **responsabilidades lógicas**; no se exige implementar cada
                      |
      +---------------+----------------+
      |                                |
-Agente                Shell / GUI
+Agente                  Presentador / UI
      |                                |
      +---------- MCP Client ----------+
                      |
@@ -73,8 +73,11 @@ Los componentes Registry y Discovery son **funciones de integración del SO**; p
 | **SASP Registry (función del SO)** | Mantiene inventario instalado e instancias activas verificadas; diferencia disponibilidad del proceso y del endpoint. | Sustituir al gestor de paquetes o confiar en IDs/PIDs autodeclarados. |
 | **Broker (opcional)** | Media conexiones y, si se decide, encaminamiento, suscripciones y reconexión. | Ser obligatorio para todas las topologías. |
 | **Adaptador / Bridge (opcional)** | Integra software que no ofrece MCP o traduce entre implementaciones y clientes; MCP es la base que se evalúa primero. | Omitir la identidad, los controles de acceso o las garantías del proveedor. |
-| **Presentador (Shell / UI)** | Construye una experiencia humana a partir de información semántica, o utiliza una UI propia. | Que todos los proveedores tengan vistas gráficas. |
-| **Autoridad de seguridad** | Autentica identidades, decide permisos, restringe efectos y registra operaciones relevantes según el sistema anfitrión. | Que un manifiesto o prompt sustituya las comprobaciones efectivas. |
+| **Presentador (Presenter)** | Construye una experiencia humana a partir de información semántica, o utiliza una UI propia. | Que todos los proveedores tengan vistas gráficas. |
+| **Autoridad de seguridad** | Autentica identidades, decide permisos y restringe efectos según el sistema anfitrión. | Que un manifiesto o prompt sustituya las comprobaciones efectivas. |
+| **Supervisor** | Administra procesos y servicios e informa sobre su ciclo de vida. | Que SASP sustituya al init del sistema operativo. |
+| **Ejecutor privilegiado (si corresponde)** | Ejecuta acciones protegidas después de aplicar controles efectivos. | Ser necesario para toda llamada MCP. |
+| **Subsistema de auditoría** | Registra hechos relevantes conforme a políticas del host. | Un formato o servicio central obligatorio. |
 
 Un mismo proceso puede implementar varios roles. **Los roles son separaciones lógicas**, no una obligación de desplegar un daemon por cada uno.
 
@@ -196,7 +199,7 @@ La regla principal es **«capacidad anunciada» no equivale a «capacidad autori
 
 ### Ejemplo de integración en Thanos OS
 
-En un despliegue hipotético, **el agente** consumiría contratos SASP mediante una ruta permitida y solicitaría operaciones; **Thanos Shell** presentaría información a personas; **Ship** conservaría la aplicación de políticas para operaciones protegidas y **Atlas** registraría evidencia relevante. **Station** seguiría supervisando servicios y procesos. Ninguno de esos componentes es requisito para otras implementaciones de SASP.
+En un despliegue hipotético, **el Agente** consumiría contratos SASP mediante una ruta permitida y solicitaría operaciones; **Thanos Shell** actuaría como **Presentador**; **Ship** reuniría las funciones de **Autoridad de seguridad** y **Ejecutor privilegiado** para operaciones protegidas; **Atlas** implementaría el **Subsistema de auditoría**; y **Station** actuaría como **Supervisor** de servicios y procesos. Ninguno de esos componentes es requisito para otras implementaciones de SASP.
 
 ## 8. Transporte e interoperabilidad
 
@@ -245,6 +248,7 @@ La primera validación recomendada es una **aplicación de música simulada** y 
 ## 11. Documentos relacionados
 
 - [SASP como integración MCP con el SO](os-integration.md)
+- [Terminología de roles y correspondencias de implementación](terminologia.md)
 - [Registry y Discovery](registry-discovery.md)
 - [DECISION-0002 — Alcance de integración MCP](../DECISION-0002-integracion-mcp-en-so.md)
 
