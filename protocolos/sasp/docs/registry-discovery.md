@@ -128,7 +128,7 @@ Para detalles de los mensajes JSON y casos de prueba, véase [Discovery como ser
 ```text
 Usuario: «Busca un reproductor de música disponible»
               |
-        Capsuleer o Shell
+        Agente o Shell
               |
          MCP tools/call
        applications.search
@@ -154,7 +154,7 @@ Un resultado puede mostrar un proveedor **instalado pero sin instancia**. **Disc
 
 La resolución puede devolver una **referencia opaca**, no necesariamente una ruta física a un socket. La implementación elige conexión directa o mediada conforme a los permisos y al aislamiento.
 
-En Thanos OS, Capsuleer no debe recibir por resolución un endpoint que eluda las restricciones efectivas de Ship.
+En Thanos OS, el agente no debe recibir por resolución un endpoint que eluda las restricciones efectivas de Ship.
 
 ## 6. Seguridad
 
