@@ -10,6 +10,10 @@ Mantener explícitos los seis ejes: **Application & Service Contract, SASP Regis
 
 La [DECISION-0002](DECISION-0002-integracion-mcp-en-so.md) establece la dirección vigente. La [DECISION-0001](DECISION-0001-nombre-y-alcance.md) conserva la decisión de nombre y su contexto.
 
+## Terminología de roles
+
+Usar [Terminología SASP](docs/terminologia.md) como referencia para apartados generales: **Agente**, **Presentador**, **Supervisor**, **Autoridad de seguridad**, **Ejecutor privilegiado** y **Subsistema de auditoría**. Reservar **Capsuleer**, **Thanos Shell**, **Station**, **Ship** y **Atlas** para las secciones de integración explícita de Thanos OS o referencias históricas; no modificar APIs, código o nombres históricos únicamente por esta convención.
+
 ## Criterios técnicos
 
 - Reutilizar MCP Tools, Resources, notificaciones, Tasks y MCP Apps antes de proponer nuevos métodos, transportes o extensiones.
