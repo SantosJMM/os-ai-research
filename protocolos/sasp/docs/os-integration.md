@@ -26,7 +26,7 @@ La comparación de referencia usa **MCP 2026-07-28**, la extensión **MCP Apps 2
 | Descubrir capacidades de servidor | `server/discover` | ¿Cómo encuentra el sistema operativo **qué servidores o aplicaciones hay**? |
 | Distribuir servidores | MCP Registry y registros del ecosistema | ¿Cómo registrar instalaciones **locales** e instancias activas de un equipo? |
 | Operaciones prolongadas | Extensión `io.modelcontextprotocol/tasks` | ¿Cómo relacionarla con tareas, procesos y recuperación a nivel de SO? |
-| Presentación interactiva | MCP Apps: recursos `ui://`, metadatos de herramientas y HTML aislado | ¿Cómo conviven MCP Apps, GTK/Qt y Thanos Shell? |
+| Presentación interactiva | MCP Apps: recursos `ui://`, metadatos de herramientas y HTML aislado | ¿Cómo conviven MCP Apps, GTK/Qt y los **Presentadores** o interfaces nativas del SO? |
 | Transporte | MCP `stdio`, Streamable HTTP y transportes personalizados | ¿Cuál es el canal autorizado para cada tipo de proceso e instancia local? |
 | Autorización | MCP define mecanismos de autorización, especialmente para HTTP | ¿Cómo imponer credenciales, privilegios y políticas nativas de cada SO? |
 
@@ -131,7 +131,7 @@ Se deben probar pérdidas, duplicados, reconexiones y cambios de instancia sin p
 
 - El **núcleo** consume MCP Tools, Resources, suscripciones y extensiones.
 - **MCP Apps** es una posibilidad de presentación interactiva para hosts compatibles, con recursos `ui://` y sandbox HTML; **no reemplaza** por sí misma una ventana nativa GTK/Qt.
-- **Thanos Shell** puede presentar estado y acciones en una UI propia a partir de recursos y contratos de las aplicaciones.
+- El **Presentador** puede mostrar estado y acciones mediante una UI propia a partir de recursos y contratos de las aplicaciones.
 - Los daemons y servicios sin ventana pueden participar **sin publicar ningún recurso `ui://`**.
 - Si las necesidades de presentación nativa no se cubren con MCP Apps, definir una **extensión SASP de contexto de interfaz**, separada del transporte y del registro, después de comprobar con prototipos su necesidad.
 - Los adaptadores deben mantener identidad y permisos, y no convertir metadatos no confiables de servidores en instrucciones privilegiadas.
@@ -166,7 +166,7 @@ Se deben probar pérdidas, duplicados, reconexiones y cambios de instancia sin p
           búsqueda por capacidad
                     v
         +-----------------------+
-        | SASP Discovery        |<-- Agente / Shell
+        | SASP Discovery        |<-- Agente / Presentador
         | (interfaz MCP posible)|
         +-----------------------+
                     |
@@ -205,15 +205,15 @@ Una persona pide: «Busca un reproductor musical instalado y dime si está repro
 
 En Thanos OS, una implementación candidata sería:
 
-- **Station:** supervisión y ciclo de vida real del proceso/servicio.
+- **Station (Supervisor):** supervisión y ciclo de vida real del proceso/servicio.
 - **SASP Registry:** catálogo de instalaciones e instancias, abastecido por mecanismos confiables del SO.
 - **SASP Discovery:** interfaz de consulta, potencialmente un servidor MCP del propio SO.
 - **Agente:** cliente restringido que descubre capacidades y solicita operaciones.
-- **Thanos Shell:** cliente humano de estado y acciones; puede renderizar MCP Apps o UI nativa según el caso.
-- **Ship:** autoridad de políticas para operaciones protegidas y mediación según perfil; el agente no obtiene acceso root ni rutas de bypass.
-- **Atlas:** auditoría de operaciones y eventos relevantes.
+- **Thanos Shell (Presentador):** cliente humano de estado y acciones; puede renderizar MCP Apps o UI nativa según el caso.
+- **Ship (Autoridad de seguridad / Ejecutor privilegiado):** aplica políticas y operaciones protegidas según el perfil; el agente no obtiene acceso root ni rutas de bypass.
+- **Atlas (Subsistema de auditoría):** registro de operaciones y eventos relevantes.
 
-Es una asignación **candidata**, no una implementación ya aprobada del núcleo de Thanos OS. Un SO distinto puede aportar otros supervisores y políticas sin cambiar el objetivo de SASP.
+Es una asignación **candidata**, no una implementación ya aprobada del núcleo de Thanos OS. Un SO distinto puede aportar otros supervisores y políticas sin cambiar el objetivo de SASP. La [terminología general y sus correspondencias](terminologia.md) evitan que los nombres específicos de Thanos OS se conviertan en requisitos.
 
 La separación entre identidad de proveedor, identidad autenticada del proceso y permiso de invocación es obligatoria como principio de seguridad.
 
@@ -244,4 +244,4 @@ Ver [plan de seis experimentos de integración con el SO](../experiments/os-inte
 - [MCP Tasks](https://github.com/modelcontextprotocol/ext-tasks/blob/main/specification/2026-07-28/tasks.md)
 - [MCP Apps](https://github.com/modelcontextprotocol/ext-apps/blob/main/specification/2026-01-26/apps.mdx)
 - [MCP Registry](https://github.com/modelcontextprotocol/registry/blob/main/docs/modelcontextprotocol-io/about.mdx)
-- [Arquitectura SASP](architecture.md), [Registry y Discovery](registry-discovery.md) y [contrato auxiliar experimental](../specification/draft/overview.md)
+- [Arquitectura SASP](architecture.md), [Terminología](terminologia.md), [Registry y Discovery](registry-discovery.md) y [contrato auxiliar experimental](../specification/draft/overview.md)
