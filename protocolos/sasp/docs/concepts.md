@@ -8,6 +8,8 @@ SASP se organiza alrededor de la **integración de servidores MCP con el sistema
 
 **Diferencias de nombres:** **MCP Registry** publica metadatos de servidores en el ecosistema; **SASP Registry** administra información local de instalaciones/instancias; **MCP `server/discover`** describe las capacidades de un servidor MCP ya ubicado; **SASP Discovery** permite encontrar proveedores dentro del SO, potencialmente a través de un servidor MCP propio.
 
+Las convenciones de nombres genéricos de roles y sus equivalencias concretas están en [Terminología SASP](terminologia.md). Este documento conserva las definiciones funcionales del modelo.
+
 ## 1. Software que participa en SASP
 
 ### Aplicación (`Application`)
@@ -94,8 +96,11 @@ Información opcional que ayuda a un cliente a interpretar, agrupar o presentar 
 | **SASP Registry** | Catálogo local del SO: instalaciones e instancias activas verificadas, con estado de proceso y endpoint diferenciados. |
 | **Broker** | Intermediario opcional que puede encaminar conexiones, mensajes o suscripciones. |
 | **Bridge / Adapter** | Integra proveedores sin MCP o adapta presentaciones; la interfaz MCP se intenta reutilizar primero. |
-| **Presenter / Shell** | Cliente que genera una experiencia humana; puede consumir contexto de interacción o disponer de UI propia. |
-| **Security Authority** | Mecanismo externo que aplica identidad, políticas y controles efectivos de acceso. |
+| **Presentador (Presenter)** | Cliente que genera una experiencia humana; puede consumir contexto de interacción o disponer de UI propia. |
+| **Autoridad de seguridad (Security Authority)** | Mecanismo externo que aplica identidad, políticas y controles efectivos de acceso. |
+| **Supervisor** | Gestor del ciclo de vida de procesos/servicios del sistema anfitrión. |
+| **Ejecutor privilegiado** | Componente opcional que aplica efectos protegidos tras autorización. |
+| **Subsistema de auditoría** | Mecanismo del host para registrar operaciones y hechos relevantes. |
 
 Un mismo programa puede cumplir varios roles. **SASP no presupone un servicio separado para cada rol.** **Registry y Discovery son responsabilidades separadas**, aunque una implementación pueda reunirlas.
 
@@ -145,6 +150,7 @@ Estos términos **no son nombres de métodos del protocolo**, sino parte del voc
 ## 8. Referencias
 
 - [Arquitectura SASP](architecture.md)
+- [Terminología SASP](terminologia.md)
 - [Integración MCP con el SO](os-integration.md)
 - [Registry y Discovery](registry-discovery.md)
 - [DECISION-0002 — Alcance de integración](../DECISION-0002-integracion-mcp-en-so.md)
