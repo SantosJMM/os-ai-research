@@ -128,7 +128,7 @@ Para detalles de los mensajes JSON y casos de prueba, véase [Discovery como ser
 ```text
 Usuario: «Busca un reproductor de música disponible»
               |
-        Agente o Shell
+        Agente o Presentador
               |
          MCP tools/call
        applications.search
@@ -194,6 +194,7 @@ En Thanos OS, el agente no debe recibir por resolución un endpoint que eluda la
 
 - [SASP — integración del sistema operativo](os-integration.md)
 - [Arquitectura de SASP](architecture.md)
+- [Terminología de roles](terminologia.md)
 - [Plan de experimentos OS-01 a OS-06](../experiments/os-integration/README.md)
 - [MCP Registry — repositorio](https://github.com/modelcontextprotocol/registry)
 - [MCP 2026-07-28 — protocolo](https://modelcontextprotocol.io/specification/2026-07-28)
