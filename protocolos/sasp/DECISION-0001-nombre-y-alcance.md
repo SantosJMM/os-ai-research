@@ -8,7 +8,7 @@
 
 ## Contexto
 
-El proyecto empezó bajo el nombre **Thanos UI Protocol (TUP)**. Al definir el alcance observamos que no está limitado a UI gráfica ni a aplicaciones Thanos: también puede servir a procesos y daemons, y pretende funcionar con agentes o clientes distintos a Capsuleer. Conocemos capacidades de MCP y MCP Apps que se solapan y deben aprovecharse o compararse antes de justificar un protocolo distinto.
+El proyecto empezó bajo el nombre **Thanos UI Protocol (TUP)**. Al definir el alcance observamos que no está limitado a UI gráfica ni a aplicaciones Thanos: también puede servir a procesos y daemons, y pretende funcionar con agentes y clientes independientes del agente integrado en Thanos OS. Conocemos capacidades de MCP y MCP Apps que se solapan y deben aprovecharse o compararse antes de justificar un protocolo distinto.
 
 ## Decisión
 
