@@ -47,7 +47,7 @@ Las decisiones de alcance están en [DECISION-0001 (nombre)](DECISION-0001-nombr
                            |
               +------------+-------------+
               |                          |
-       Agente / Capsuleer          Persona / Shell
+       Agente                       Persona / Shell
               |                          |
               +------- SASP Connection --+
                         |  MCP
@@ -64,7 +64,7 @@ Las decisiones de alcance están en [DECISION-0001 (nombre)](DECISION-0001-nombr
 
 El diagrama representa **roles lógicos** y no exige implementar un daemon independiente para cada uno. Los proveedores conservan sus APIs, procesos y mecanismos de seguridad nativos.
 
-En **Thanos OS**, la integración podrá utilizar **Station** (supervisión), **Ship** (políticas y ejecución protegida), **Atlas** (auditoría), **Capsuleer** (cliente aislado) y **Thanos Shell** (presentación). Ninguno de estos nombres es requisito para otras plataformas.
+En **Thanos OS**, la integración podrá utilizar **Station** (supervisión), **Ship** (políticas y ejecución protegida), **Atlas** (auditoría), **Agente** (cliente aislado) y **Thanos Shell** (presentación). Ninguno de estos nombres es requisito para otras plataformas.
 
 ## Los seis ejes de SASP
 
